@@ -13,37 +13,18 @@
      <aside id="layout-menu" class="layout-menu menu-vertical menu active" data-simplebar>
          <ul class="menu-inner">
              <li class="menu-item open">
-                 <a href="javascript:void(0);" class="menu-link menu-toggle active">
+                 <a href="javascript:void(0);" class="menu-link  active">
                      <i data-feather="grid" class="menu-icon tf-icons"></i>
                      <span class="title">Dashboard</span>
-                     <span class="count">7</span>
                  </a>
-                 <ul class="menu-sub">
-                     <li class="menu-item">
-                         <a href="index.html" class="menu-link">
-                             eCommerce
-                         </a>
-                     </li>
-                     <li class="menu-item">
-                         <a href="analytics.html" class="menu-link">
-                             Analytics
-                         </a>
-                     </li>
-                 </ul>
              </li>
              <li class="menu-title small text-uppercase">
-                 <span class="menu-title-text">APPS</span>
+                 <span class="menu-title-text">CMS For EASY PLUS</span>
              </li>
              <li class="menu-item">
-                 <a href="chat.html" class="menu-link">
-                     <i data-feather="message-square" class="menu-icon tf-icons"></i>
-                     <span class="title">Chat</span>
-                 </a>
-             </li>
-             <li class="menu-item">
-                 <a href="to-do.html" class="menu-link">
-                     <i data-feather="file-text" class="menu-icon tf-icons"></i>
-                     <span class="title">To Do</span>
+                 <a href="<?= $app_path ?>modules/slider/" class="menu-link">
+                     <i data-feather="image" class="menu-icon tf-icons"></i>
+                     <span class="title">Slider</span>
                  </a>
              </li>
          </ul>

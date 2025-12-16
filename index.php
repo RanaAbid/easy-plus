@@ -295,51 +295,51 @@
    </section>
    <section class="space-top space-extra-bottom">
        <div class="container">
-          <div class="row flex-row-reverse">
-    <div class="col-lg-5 col-xxl-auto mb-30 pb-20 pb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
-        <img src="<?= $app_path ?>assets/img/skill/skill-1-1.jpg" alt="Skill image">
-    </div>
+           <div class="row flex-row-reverse">
+               <div class="col-lg-5 col-xxl-auto mb-30 pb-20 pb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
+                   <img src="<?= $app_path ?>assets/img/skill/skill-1-1.jpg" alt="Skill image">
+               </div>
 
-    <div class="col-lg-7 col-xxl-6 me-xl-auto">
-        <span class="sec-subtitle">
-            <i class="fas fa-bring-forward"></i> Everything You Need Under One Platform
-        </span>
+               <div class="col-lg-7 col-xxl-6 me-xl-auto">
+                   <span class="sec-subtitle">
+                       <i class="fas fa-bring-forward"></i> Everything You Need Under One Platform
+                   </span>
 
-        <h2 class="sec-title h1">
-            Accounting, Tax & Business Services
-        </h2>
+                   <h2 class="sec-title h1">
+                       Accounting, Tax & Business Services
+                   </h2>
 
-        <p class="mb-4 pb-1">
-            We offer a complete range of services including bookkeeping, VAT, corporate tax, business formation, 
-            visa processing, PRO services, labour and municipality documentation, and government typing. 
-            This makes it easier for you to manage compliance while focusing on growth.
-        </p>
+                   <p class="mb-4 pb-1">
+                       We offer a complete range of services including bookkeeping, VAT, corporate tax, business formation,
+                       visa processing, PRO services, labour and municipality documentation, and government typing.
+                       This makes it easier for you to manage compliance while focusing on growth.
+                   </p>
 
-        <div class="progress-box">
-            <h3 class="progress-box__title">Bookkeeping & Accounting</h3>
-            <span class="progress-box__number">90%</span>
-            <div class="progress-box__progress">
-                <div class="progress-box__bar" role="progressbar" style="width: 90%" aria-valuenow="90"></div>
-            </div>
-        </div>
+                   <div class="progress-box">
+                       <h3 class="progress-box__title">Bookkeeping & Accounting</h3>
+                       <span class="progress-box__number">90%</span>
+                       <div class="progress-box__progress">
+                           <div class="progress-box__bar" role="progressbar" style="width: 90%" aria-valuenow="90"></div>
+                       </div>
+                   </div>
 
-        <div class="progress-box">
-            <h3 class="progress-box__title">Tax & VAT Compliance</h3>
-            <span class="progress-box__number">85%</span>
-            <div class="progress-box__progress">
-                <div class="progress-box__bar" role="progressbar" style="width: 85%" aria-valuenow="85"></div>
-            </div>
-        </div>
+                   <div class="progress-box">
+                       <h3 class="progress-box__title">Tax & VAT Compliance</h3>
+                       <span class="progress-box__number">85%</span>
+                       <div class="progress-box__progress">
+                           <div class="progress-box__bar" role="progressbar" style="width: 85%" aria-valuenow="85"></div>
+                       </div>
+                   </div>
 
-        <div class="progress-box">
-            <h3 class="progress-box__title">Business Formation & PRO Services</h3>
-            <span class="progress-box__number">95%</span>
-            <div class="progress-box__progress">
-                <div class="progress-box__bar" role="progressbar" style="width: 95%" aria-valuenow="95"></div>
-            </div>
-        </div>
-    </div>
-</div>
+                   <div class="progress-box">
+                       <h3 class="progress-box__title">Business Formation & PRO Services</h3>
+                       <span class="progress-box__number">95%</span>
+                       <div class="progress-box__progress">
+                           <div class="progress-box__bar" role="progressbar" style="width: 95%" aria-valuenow="95"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
 
        </div>
    </section>
