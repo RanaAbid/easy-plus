@@ -11,6 +11,7 @@
     </div>
     <script src="<?=$app_path?>assets/js/bootstrap.bundle.min.js"></script>
     <script src="<?=$app_path?>assets/js/sidebar-menu.js"></script>
+    <script src="<?=$app_path?>assets/js/custom/sidebar-guards.js"></script>
     <script src="<?=$app_path?>assets/js/dragdrop.js"></script>
     <script src="<?=$app_path?>assets/js/rangeslider.min.js"></script>
     <script src="<?=$app_path?>assets/js/sweetalert.js"></script>

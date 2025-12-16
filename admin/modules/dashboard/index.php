@@ -1,6 +1,5 @@
 <?php
 include("../../includes/header.php");
-
 ?>
 <div class="row justify-content-center">
     <div class="col-xxl-3 col-sm-6 col-xxxl-6">
@@ -332,5 +331,4 @@ include("../../includes/header.php");
 </div>
 <?php
 include("../../includes/footer.php");
-
 ?>
