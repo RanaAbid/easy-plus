@@ -1,6 +1,6 @@
  <div class="sidebar-area" id="sidebar-area">
      <div class="logo position-relative">
-         <a href="index.html" class="d-block text-decoration-none">
+         <a href="<?= $app_path ?>modules/dashboard/" class="d-block text-decoration-none">
              <img src="<?= $app_path ?>assets/images/logo-icon.png" alt="logo-icon">
              <span class="logo-text fw-bold text-dark">Farol</span>
          </a>
@@ -32,13 +32,13 @@
      <div class="bg-white z-1 admin">
          <div class="d-flex align-items-center admin-info border-top">
              <div class="flex-shrink-0">
-                 <a href="profile.html" class="d-block">
+                 <a href="<?= $app_path ?>modules/dashboard/" class="d-block">
                      <img src="<?= $app_path ?>assets/images/admin.jpg" class="rounded-circle wh-54" alt="admin">
                  </a>
              </div>
              <div class="flex-grow-1 ms-3 info">
-                 <a href="profile.html" class="d-block name">Adison Jeck</a>
-                 <a href="logout.html">Log Out</a>
+                 <a href="<?= $app_path ?>modules/dashboard/" class="d-block name">Adison Jeck</a>
+                 <a href="<?= $app_path ?>modules/dashboard/">Log Out</a>
              </div>
          </div>
      </div>

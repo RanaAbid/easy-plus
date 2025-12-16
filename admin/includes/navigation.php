@@ -64,21 +64,21 @@
                             <ul class="dropdown-menu border-0 bg-white w-100 admin-link">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
-                                        href="profile.html">
+                                        href="<?= $app_path ?>modules/dashboard/">
                                         <i data-feather="user"></i>
                                         <span class="ms-2">Profile</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
-                                        href="account.html">
+                                        href="<?= $app_path ?>modules/dashboard/">
                                         <i data-feather="settings"></i>
                                         <span class="ms-2">Setting</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
-                                        href="logout.html">
+                                        href="<?= $app_path ?>modules/dashboard/">
                                         <i data-feather="log-out"></i>
                                         <span class="ms-2">Logout</span>
                                     </a>
