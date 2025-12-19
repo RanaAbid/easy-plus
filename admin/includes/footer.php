@@ -2,9 +2,7 @@
             <div class="flex-grow-1"></div>
 
             <footer class="footer-area bg-white text-center rounded-top-10">
-                <p class="fs-14">© <span class="text-primary">Farol</span> is Proudly Owned by <a
-                        href="../../hibootstrap.com/index.html" target="_blank"
-                        class="text-decoration-none">HiBootstrap</a></p>
+                <p class="fs-14">© <span class="text-primary">Easy Plus Admin</span> is Proudly Owned by <a href="https://www.fiverr.com/vintagetech?source=gig_cards&referrer_gig_slug=set-up-and-optimize-your-osticket-helpdesk-system&ref_ctx_id=97ad2eebfe674249b06516be8e19690c&imp_id=ee7d7e61-a7e9-404f-a78d-da3d2de14d8a" target="_blank" class="text-decoration-none">Vintage Tech</a></p>
             </footer>
 
         </div>

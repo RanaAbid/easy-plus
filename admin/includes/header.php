@@ -28,9 +28,9 @@ $current_year  = date("Y", strtotime($today));
     <link rel="stylesheet" href="<?=$app_path?>assets/css/quill.snow.css">
     <link rel="stylesheet" href="<?=$app_path?>assets/css/style.css">
 
-    <link rel="icon" type="image/png" href="<?=$app_path?>assets/images/favicon.png">
+    <link rel="icon" type="image/png" href="<?=$app_path?>assets/images/easy-plus/favicon/favicon.png">
 
-    <title>Farol - Bootstrap 5 Admin Dashboard Template</title>
+    <title>Easy Plus - Admin Dashboard</title>
 </head>
 
 <body cz-shortcut-listen="true" data-new-gr-c-s-check-loaded="14.1266.0" data-gr-ext-installed="" data-theme="light" sidebar-dark-light-data-theme="sidebar-dark">

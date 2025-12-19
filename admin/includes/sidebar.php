@@ -1,8 +1,8 @@
  <div class="sidebar-area" id="sidebar-area">
      <div class="logo position-relative">
          <a href="<?= $app_path ?>modules/dashboard/" class="d-block text-decoration-none">
-             <img src="<?= $app_path ?>assets/images/logo-icon.png" alt="logo-icon">
-             <span class="logo-text fw-bold text-dark">Farol</span>
+             <img src="<?= $app_path ?>assets/images/easy-plus/96size.png" alt="logo-icon" style="width: 40px;">
+             <span class="logo-text fw-bold text-dark">Easy Plus</span>
          </a>
          <button
              class="sidebar-burger-menu bg-transparent p-0 border-0 opacity-0 z-n1 position-absolute top-50 end-0 translate-middle-y"
