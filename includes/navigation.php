@@ -59,7 +59,7 @@
                         <nav class="main-menu menu-style1 d-none d-lg-block">
                             <ul>
                                 <li><a href="<?= $app_path ?>">Home</a></li>
-                                <li><a href="<?= $app_path ?>service/">Services</a></li>
+                                <li><a href="<?= $app_path ?>services/">Services</a></li>
                                 <li><a href="<?= $app_path ?>">About Us</a></li>
                                 <li><a href="<?= $app_path ?>contact.html">Contact</a></li>
                             </ul>

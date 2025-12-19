@@ -1,63 +1,5 @@
    <?php include('includes/header.php'); ?>
-   <style>
-       /* Equal height cards */
-       .feature-style1 {
-           height: 100%;
-           display: flex;
-           flex-direction: column;
-       }
 
-       /* Text with animation */
-       .feature-text {
-           display: inline;
-           transition: all 0.3s ease;
-       }
-
-       .feature-text.fade-slide {
-           opacity: 0;
-           transform: translateY(-5px);
-       }
-
-       .feature-text.fade-slide.show {
-           opacity: 1;
-           transform: translateY(0);
-       }
-
-       /* Icon inline after ... */
-       .toggle-wrap {
-           display: inline-flex;
-           align-items: center;
-           margin-left: 6px;
-           cursor: pointer;
-           vertical-align: middle;
-       }
-
-       /* Circle icon */
-       .toggle-circle {
-           width: 18px;
-           height: 18px;
-           border-radius: 50%;
-           border: 2px solid #7A5FF5;
-           /* Purple */
-           color: #7A5FF5;
-           display: flex;
-           align-items: center;
-           justify-content: center;
-           transition: 0.3s;
-           font-size: 12px;
-       }
-
-       /* Hover effect */
-       .toggle-circle:hover {
-           background: #7A5FF5;
-           color: #fff;
-       }
-
-       /* Rotate animation */
-       .toggle-circle.rotate {
-           transform: rotate(180deg);
-       }
-   </style>
    <section class="vs-hero-wrapper position-relative">
        <div class="vs-hero-carousel" data-height="850" data-container="1900" data-slidertype="responsive">
            <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnszoom:in; kenburnsscale:1.1;"><img width="1920" height="850" src="<?= $app_path ?>assets/img/hero/hero-1-1.jpg" class="ls-bg" alt="hero-bg">
@@ -131,71 +73,69 @@
            </div>
        </div>
    </section>
-   <div data-bg-src="<?= $app_path ?>assets/img/bg/ab-bg-1-1.jpg">
+   <div data-bg-src="assets/img/bg/ab-bg-1-1.jpg">
        <section class="feature-wrap1 space-top space-extra-bottom">
            <div class="container wow fadeInUp" data-wow-delay="0.2s">
                <div class="row vs-carousel" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2">
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-1.png" alt="Features"></div>
-                           <h3 class="feature-title h5"><a class="text-inherit" href="#">ACCOUNTING & BOOKKEEPING</a></h3>
-                           <p class="feature-text">Organised accounting services that keep your books accurate, audit-ready and updated. We help you track finances, manage cash flow and make confident business decisions.</p><a href="#" class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
+                           <div class="feature-icon"><img src="assets/img/icon/fe-1-1.png" alt="Features"></div>
+                           <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Development
+                                   Services</a></h3>
+                           <p class="feature-text">Completely implement via highly efficient process improvements.
+                               engage high value before progressive data.</p><a href="service-details.html"
+                               class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
                        </div>
                    </div>
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-2.png" alt="Features"></div>
-                           <h3 class="feature-title h5"><a class="text-inherit" href="#">VAT & CORPORATE TAX</a></h3>
-                           <p class="feature-text">Complete VAT and Corporate Tax services including registration, filing, compliance review and audit preparation ensuring accurate submissions, reduced penalties and full alignment with UAE regulations.</p><a href="#" class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
+                           <div class="feature-icon"><img src="assets/img/icon/fe-1-2.png" alt="Features"></div>
+                           <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Marketing
+                                   Services</a></h3>
+                           <p class="feature-text">Completely implement via highly efficient process improvements.
+                               engage high value before progressive data.</p><a href="service-details.html"
+                               class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
                        </div>
                    </div>
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-3.png" alt="Features"></div>
-                           <h3 class="feature-title h5"><a class="text-inherit" href="#">BUSINESS SETUP & LICENSING</a></h3>
-                           <p class="feature-text">Fast and hassle-free business setup services, including licensing, renewals and government approvals ensuring your company stays compliant and legally active with RAK DED.</p><a href="#" class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
+                           <div class="feature-icon"><img src="assets/img/icon/fe-1-3.png" alt="Features"></div>
+                           <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Consulting
+                                   Services</a></h3>
+                           <p class="feature-text">Completely implement via highly efficient process improvements.
+                               engage high value before progressive data.</p><a href="service-details.html"
+                               class="vs-btn style3">Read More<i class="far fa-long-arrow-right"></i></a>
                        </div>
                    </div>
                </div>
            </div>
        </section>
-       <section class="position-relative space-bottom"><span class="about-shape1 d-none d-xl-block">EasyPlus</span>
+       <section class="position-relative space-bottom"><span class="about-shape1 d-none d-xl-block">TechBiz</span>
            <div class="container z-index-common">
                <div class="row gx-60">
                    <div class="col-lg-6 col-xl-5 mb-50 mb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
                        <div class="img-box1">
-                           <div class="img-1"><img src="<?= $app_path ?>assets/img/about/ab-1-1.jpg" alt="About image"></div>
-                           <div class="img-2"><img src="<?= $app_path ?>assets/img/about/ab-1-2.jpg" alt="About image"> <a class="play-btn style2 position-center popup-video" href="../../../www.youtube.com/watch7eaa.html?v=_sI_Ps7JSEk"><i class=""><i class="fas fa-play"></i></i></a></div>
+                           <div class="img-1"><img src="assets/img/about/ab-1-1.jpg" alt="About image"></div>
+                           <div class="img-2"><img src="assets/img/about/ab-1-2.jpg" alt="About image"> <a
+                                   class="play-btn style2 position-center popup-video"
+                                   href="../../../www.youtube.com/watch7eaa.html?v=_sI_Ps7JSEk"><i class=""><i
+                                           class="fas fa-play"></i></i></a></div>
                        </div>
                    </div>
-                   <div class="col-lg-6 col-xl-7 align-self-center wow fadeInUp" data-wow-delay="0.3s">
-                       <span class="sec-subtitle">
-                           <i class="fas fa-bring-forward"></i> Smart Accounting. Accurate Tax. Complete Business Support.
-                       </span>
-
-                       <h2 class="sec-title h1">
-                           Stay Compliant, Organised & Financially Confident
-                       </h2>
-
-                       <p class="mb-4 mt-1 pb-3">
-                           We help entrepreneurs, startups and established companies stay compliant and financially organised with reliable accounting, tax filing and government documentation support. Our work is designed for business owners who want peace of mind, timely submissions and a clear understanding of their financial position.
-                       </p>
-
+                   <div class="col-lg-6 col-xl-7 align-self-center wow fadeInUp" data-wow-delay="0.3s"><span
+                           class="sec-subtitle"><i class="fas fa-bring-forward"></i>Get best It solution 2022</span>
+                       <h2 class="sec-title h1">Trust Our Best IT Solution For Your Business</h2>
+                       <p class="mb-4 mt-1 pb-3">Compellingly mesh cross-platform portals through functional human
+                           capital world-class architectures for orthogonal initiatives. Assertively benchmark
+                           visionary quality vectors after covalent e-tailers. Intrinsicly enhance 24/7 users and
+                           supply process</p>
                        <div class="call-media">
-                           <div class="call-media__icon">
-                               <img src="<?= $app_path ?>assets/img/icon/tel-1-1.png" alt="icon">
+                           <div class="call-media__icon"><img src="assets/img/icon/tel-1-1.png" alt="icon"></div>
+                           <div class="media-body"><span class="call-media__label">24 HOURS SERVICE AVAILABLE</span>
+                               <p class="call-media__info">Call Us: <a href="tel:+6668880000">+(666) 888 0000</a></p>
                            </div>
-                           <div class="media-body">
-                               <span class="call-media__label">24 HOURS SERVICE AVAILABLE</span>
-                               <p class="call-media__info">
-                                   Call Us: <a href="tel:+97175011955">+97175011955</a>
-                               </p>
-                           </div>
-                       </div>
-
-                       <a href="<?= $app_path ?>" class="vs-btn">About Us <i class="far fa-long-arrow-right"></i></a>
+                       </div><a href="about.html" class="vs-btn">About Us<i class="far fa-long-arrow-right"></i></a>
                    </div>
-
                </div>
            </div>
        </section>
@@ -403,92 +343,3 @@
        </div>
    </section>
    <?php include('includes/footer.php'); ?>
-   <script>
-       $(document).ready(function() {
-
-           // SVG Icons (purple via CSS)
-           var plusSVG = '<svg width="10" height="10" viewBox="0 0 24 24"><path d="M12 5v14m7-7H5" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
-           var minusSVG = '<svg width="10" height="10" viewBox="0 0 24 24"><path d="M5 12h14" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>';
-
-           $('.feature-text').each(function() {
-
-               var full = $(this).text().trim();
-               var words = full.split(" ");
-
-               if (words.length > 7) {
-
-                   var short = words.slice(0, 7).join(" ") + "...";
-
-                   $(this).data("full", full);
-                   $(this).data("short", short);
-
-                   $(this).text(short);
-
-                   // INLINE — directly next to the text
-                   $(this).after(
-                       '<span class="toggle-wrap">' +
-                       '<span class="toggle-circle" data-state="collapsed">' + plusSVG + '</span>' +
-                       '</span>'
-                   );
-               }
-           });
-
-           // Expand/Collapse + rotate animation
-           $(document).on("click", ".toggle-circle", function() {
-
-               var icon = $(this);
-               var text = icon.closest('.toggle-wrap').prev('.feature-text');
-
-               icon.addClass("rotate"); // rotate animation
-
-               setTimeout(function() {
-                   icon.removeClass("rotate");
-               }, 300);
-
-               text.addClass("fade-slide");
-
-               setTimeout(function() {
-
-                   if (icon.data("state") === "collapsed") {
-
-                       text.text(text.data("full"));
-                       icon.html(minusSVG);
-                       icon.data("state", "expanded");
-
-                   } else {
-
-                       text.text(text.data("short"));
-                       icon.html(plusSVG);
-                       icon.data("state", "collapsed");
-                   }
-
-                   text.addClass("show");
-
-                   setTimeout(function() {
-                       text.removeClass("fade-slide show");
-                   }, 200);
-
-               }, 200);
-           });
-
-           /* AUTO EQUAL HEIGHT CARDS */
-           function equalHeights() {
-               var maxH = 0;
-
-               $('.feature-style1').each(function() {
-                   $(this).css('height', 'auto');
-                   var h = $(this).outerHeight();
-                   if (h > maxH) maxH = h;
-               });
-
-               $('.feature-style1').css('height', maxH);
-           }
-
-           equalHeights();
-
-           $(window).on('resize', function() {
-               equalHeights();
-           });
-
-       });
-   </script>

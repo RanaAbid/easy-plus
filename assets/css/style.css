@@ -9334,8 +9334,8 @@ blockquote.vs-quote .quote-author {
 }
 
 .service-style1.layout2 {
-    box-shadow: none;
-    border: 1px solid #eaf2fe
+    border: 1px solid #966ae947;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .service-style1.layout2:hover {
