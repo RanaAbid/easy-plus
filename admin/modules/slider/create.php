@@ -39,7 +39,9 @@ include("../../includes/header.php");
                         <div class="form-group position-relative">
                             <textarea id="txt_heading" name="txt_heading" class="form-control ps-5 text-dark" placeholder="Some demo text ... "></textarea>
                         </div>
-                        <small class="text-muted">Use &lt;strong&gt; tag for bold text</small>
+                        <small class="text-muted fw-bold">
+                            Max 3 words (e.g., TOP IT SUPPORT & MANAGEMENT)
+                        </small>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -48,6 +50,9 @@ include("../../includes/header.php");
                         <div class="form-group position-relative">
                             <textarea id="txt_tagline" name="txt_tagline" class="form-control ps-5 text-dark" placeholder="Some demo text ... "></textarea>
                         </div>
+                        <small class="text-muted fw-bold">
+                            Max 3 words (e.g., HIGHLY QUALIFIED ENGINEERS)
+                        </small>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -62,6 +67,9 @@ include("../../includes/header.php");
                                 </label>
                                 <input id="txt_image_desktop" name="txt_image_desktop" type="file" accept="image/*">
                             </div>
+                            <small class="text-muted fw-bold">
+                                Desktop & laptop image: 1900 × 850 px (WebP format for optimization)
+                            </small>
                         </div>
                     </div>
 
@@ -77,6 +85,9 @@ include("../../includes/header.php");
                                 </label>
                                 <input id="txt_image_mobile" name="txt_image_mobile" type="file" accept="image/*">
                             </div>
+                            <small class="text-muted fw-bold">
+                                Mobile & small screen image: 430 × 380 px (WebP format for optimization)
+                            </small>
                         </div>
                     </div>
                 </div>
@@ -86,6 +97,9 @@ include("../../includes/header.php");
                         <div class="form-group position-relative">
                             <input id="txt_alt" name="txt_alt" type="text" class="form-control text-dark ps-5 h-58" placeholder="Enter image alt text">
                         </div>
+                        <small class="text-muted fw-bold">
+                            Slider image alt text (e.g., IT Support Services Banner), Alt text required for SEO & accessibility
+                        </small>
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -94,6 +108,9 @@ include("../../includes/header.php");
                         <div class="form-group position-relative">
                             <input id="txt_btn_title" name="txt_btn_title" type="text" class="form-control text-dark ps-5 h-58" placeholder="Enter Name">
                         </div>
+                        <small class="text-muted fw-bold">
+                            Use only two words for the button title
+                        </small>
                     </div>
                 </div>
                 <div class="col-lg-6">
