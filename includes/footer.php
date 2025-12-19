@@ -91,6 +91,7 @@
 <script src="<?= $app_path ?>assets/js/layerslider.transitions.js"></script>
 <script src="<?= $app_path ?>assets/js/layerslider.kreaturamedia.jquery.js"></script>
 <script src="<?= $app_path ?>assets/js/main.js"></script>
+<script src="<?= $app_path ?>assets/js/hero-observer.js"></script>
 </body>
 
 </html>

@@ -39,6 +39,7 @@ include("../../includes/header.php");
                         <div class="form-group position-relative">
                             <textarea id="txt_heading" name="txt_heading" class="form-control ps-5 text-dark" placeholder="Some demo text ... "></textarea>
                         </div>
+                        <small class="text-muted">Use &lt;strong&gt; tag for bold text</small>
                     </div>
                 </div>
                 <div class="col-lg-6">
