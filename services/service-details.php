@@ -16,7 +16,6 @@
      <div class="container">
          <div class="row flex-row-reverse">
              <div class="col-lg-8">
-                 <!-- <div class="mb-3 pb-3"><img src="<?= $app_path ?>assets/img/service/sr-d-1-1.jpg" alt="Project image"></div> -->
                  <h2 class="h4">Reliable Accounting & Bookkeeping Solutions</h2>
                  <p>Our Accounting & Bookkeeping services are designed to give business owners complete financial clarity and control. We go beyond basic data entry by maintaining structured, compliant and decision-ready financial records that support sustainable business growth.<br>
 
