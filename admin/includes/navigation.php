@@ -50,9 +50,9 @@
                                 <div class="flex-grow-1 ms-3">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div class="d-none d-xxl-block">
-                                            <span class="degeneration">Admin</span>
+                                            <span class="degeneration"><?= htmlspecialchars(ucfirst($adminUser['role'] ?? 'Admin')) ?></span>
                                             <div class="d-flex align-content-center">
-                                                <h3>Adison Jeck</h3>
+                                                <h3><?= htmlspecialchars($adminUser['name'] ?? 'Admin') ?></h3>
                                                 <div class="down">
                                                     <i data-feather="chevron-down"></i>
                                                 </div>
@@ -78,7 +78,7 @@
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
-                                        href="<?= $app_path ?>modules/dashboard/">
+                                        href="<?= $app_path ?>logout.php">
                                         <i data-feather="log-out"></i>
                                         <span class="ms-2">Logout</span>
                                     </a>

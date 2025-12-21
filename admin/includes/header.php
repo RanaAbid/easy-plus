@@ -3,11 +3,17 @@ ob_start();
 session_start();
 
 include("constants.php");
+include("auth.php");
 include($root_path . "includes/dbcode.php");
+
+// Check if user is logged in
+checkAdminLogin();
 
 $today         = date('m/d/Y h:i:s A', time());
 $current_month = date("m y", strtotime($today));
 $current_year  = date("Y", strtotime($today));
+
+$adminUser = getAdminUser();
 ?>
 <!DOCTYPE html>
 <html lang="zxx">

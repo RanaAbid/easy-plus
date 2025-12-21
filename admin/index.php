@@ -1,5 +1,16 @@
 <?php
+session_start();
 include('includes/constants.php');
+include('includes/auth.php');
+
+// If already logged in, redirect to dashboard
+if (isAdminLoggedIn()) {
+    header("Location: " . $app_path . "modules/dashboard/");
+    exit;
+}
+
+$error = $_GET['error'] ?? '';
+$logged_out = isset($_GET['logged_out']);
 ?>
 <!doctype html>
 <html lang="en">
@@ -65,9 +76,21 @@ color: #f0f0f0ff;
       </div>
     </div>
 
+    <?php if ($logged_out): ?>
+    <div style="background: #10b981; color: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-size: 14px;">
+      You have been successfully logged out.
+    </div>
+    <?php endif; ?>
+
+    <?php if ($error): ?>
+    <div style="background: #ef4444; color: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-size: 14px;">
+      <?= htmlspecialchars($error) ?>
+    </div>
+    <?php endif; ?>
+
     <form method="post" action="authenticate.php">
       <div class="form-group">
-        <input class="form-control" type="text" name="username" placeholder="Username" required>
+        <input class="form-control" type="text" name="username" placeholder="Username" required autofocus>
       </div>
       <div class="form-group">
         <input class="form-control" type="password" name="password" placeholder="Password" required>
@@ -77,7 +100,10 @@ color: #f0f0f0ff;
       </div>
     </form>
 
-    <div class="muted">Forgot password? <a href="forgot-password.php">Reset</a></div>
+    <div class="muted">
+      <small>Default: username: <strong>admin</strong>, password: <strong>admin123</strong></small><br>
+      Forgot password? <a href="forgot-password.php">Reset</a>
+    </div>
   </main>
 
   <script>

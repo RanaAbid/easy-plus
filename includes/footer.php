@@ -72,7 +72,7 @@
                     <div class="widget footer-widget">
                         <h3 class="widget_title">Office Maps</h3>
                         <div class="footer-map">
-                            <iframe title="office location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8524057235454!2d55.96527677597439!3d25.808442906671218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6713ae00cea99%3A0xafc0bfe80d291b1a!2s17%2026B%20St%20-%20Ras%20Al%20Khaimah%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1765274751707!5m2!1sen!2s" width="200" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="office location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8524057235454!2d55.96527677597439!3d25.808442906671218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6713ae00cea99%3A0xafc0bfe80d291b1a!2s17%2026B%20St%20-%20Ras%20Al%20Khaimah%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1765274751707!5m2!1sen!2s" width="200" height="180" style="border:0;" allowfullscreen="" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
@@ -85,13 +85,13 @@
         </div>
     </div>
 </footer><a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
-<script src="<?= $app_path ?>assets/js/vendor/jquery-3.6.0.min.js"></script>
-<script src="<?= $app_path ?>assets/js/app.min.js"></script>
-<script src="<?= $app_path ?>assets/js/layerslider.utils.js"></script>
-<script src="<?= $app_path ?>assets/js/layerslider.transitions.js"></script>
-<script src="<?= $app_path ?>assets/js/layerslider.kreaturamedia.jquery.js"></script>
-<script src="<?= $app_path ?>assets/js/main.js"></script>
-<script src="<?= $app_path ?>assets/js/hero-observer.js"></script>
+<script src="<?= $app_path ?>assets/js/vendor/jquery-3.6.0.min.js" defer></script>
+<script src="<?= $app_path ?>assets/js/app.min.js" defer></script>
+<script src="<?= $app_path ?>assets/js/layerslider.utils.js" defer></script>
+<script src="<?= $app_path ?>assets/js/layerslider.transitions.js" defer></script>
+<script src="<?= $app_path ?>assets/js/layerslider.kreaturamedia.jquery.js" defer></script>
+<script src="<?= $app_path ?>assets/js/main.js" defer></script>
+<script src="<?= $app_path ?>assets/js/hero-observer.js" defer></script>
 </body>
 
 </html>

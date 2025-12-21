@@ -18,15 +18,63 @@
                      <span class="title">Dashboard</span>
                  </a>
              </li>
-             <li class="menu-title small text-uppercase">
-                 <span class="menu-title-text">CMS For EASY PLUS</span>
-             </li>
-             <li class="menu-item">
-                 <a href="<?= $app_path ?>modules/slider/" class="menu-link">
-                     <i data-feather="image" class="menu-icon tf-icons"></i>
-                     <span class="title">Slider</span>
-                 </a>
-             </li>
+            <li class="menu-title small text-uppercase">
+                <span class="menu-title-text">CMS For EASY PLUS</span>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/slider/" class="menu-link">
+                    <i data-feather="image" class="menu-icon tf-icons"></i>
+                    <span class="title">Hero Slider</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/features/" class="menu-link">
+                    <i data-feather="star" class="menu-icon tf-icons"></i>
+                    <span class="title">Features</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/services/" class="menu-link">
+                    <i data-feather="briefcase" class="menu-icon tf-icons"></i>
+                    <span class="title">Services</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/about/" class="menu-link">
+                    <i data-feather="info" class="menu-icon tf-icons"></i>
+                    <span class="title">About Section</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/process/" class="menu-link">
+                    <i data-feather="layers" class="menu-icon tf-icons"></i>
+                    <span class="title">Process/Team</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/skills/" class="menu-link">
+                    <i data-feather="trending-up" class="menu-icon tf-icons"></i>
+                    <span class="title">Skills/Progress</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/faq/" class="menu-link">
+                    <i data-feather="help-circle" class="menu-icon tf-icons"></i>
+                    <span class="title">FAQ</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/cta/" class="menu-link">
+                    <i data-feather="phone-call" class="menu-icon tf-icons"></i>
+                    <span class="title">CTA Section</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/settings/" class="menu-link">
+                    <i data-feather="settings" class="menu-icon tf-icons"></i>
+                    <span class="title">Settings</span>
+                </a>
+            </li>
          </ul>
      </aside>
      <div class="bg-white z-1 admin">
@@ -37,8 +85,8 @@
                  </a>
              </div>
              <div class="flex-grow-1 ms-3 info">
-                 <a href="<?= $app_path ?>modules/dashboard/" class="d-block name">Adison Jeck</a>
-                 <a href="<?= $app_path ?>modules/dashboard/">Log Out</a>
+                 <a href="<?= $app_path ?>modules/dashboard/" class="d-block name"><?= htmlspecialchars($adminUser['name'] ?? 'Admin') ?></a>
+                 <a href="<?= $app_path ?>logout.php" class="text-danger">Log Out</a>
              </div>
          </div>
      </div>
