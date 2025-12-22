@@ -1,5 +1,5 @@
 <?php include('../includes/header.php'); ?>
-<div class="breadcumb-wrapper" data-bg-src="assets/img/breadcumb/breadcumb-bg.jpg">
+<div class="breadcumb-wrapper" data-bg-src="<?= $app_path ?>assets/img/breadcumb/breadcumb-bg.jpg">
     <div class="container z-index-common">
         <div class="breadcumb-content">
             <h1 class="breadcumb-title">About Us</h1>
@@ -12,97 +12,86 @@
         </div>
     </div>
 </div>
-<section class="space-top space-extra-bottom">
-    <div class="container wow fadeInUp" data-wow-delay="0.2s">
-        <div class="row vs-carousel" data-slide-show="3" data-md-slide-show="2">
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style1 layout3">
-                    <div class="service-bg" data-bg-src="assets/img/bg/sr-box-bg-1.jpg"></div>
-                    <div class="service-top">
-                        <div class="service-icon"><img src="assets/img/icon/sr-icon-1-1.png" alt="Features"></div>
-                        <span class="service-number">01</span>
-                    </div>
-                    <h3 class="service-title h5"><a href="service-details.html">Cloud Services</a></h3>
-                    <p class="service-text">Cardinate premier technology without sustainable leadership work...</p>
-                    <a href="service-details.html" class="link-btn">Read More<i
-                            class="far fa-long-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style1 layout3">
-                    <div class="service-bg" data-bg-src="assets/img/bg/sr-box-bg-1.jpg"></div>
-                    <div class="service-top">
-                        <div class="service-icon"><img src="assets/img/icon/sr-icon-1-2.png" alt="Features"></div>
-                        <span class="service-number">02</span>
-                    </div>
-                    <h3 class="service-title h5"><a href="service-details.html">Software Services</a></h3>
-                    <p class="service-text">Cardinate premier technology without sustainable leadership work...</p>
-                    <a href="service-details.html" class="link-btn">Read More<i
-                            class="far fa-long-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style1 layout3">
-                    <div class="service-bg" data-bg-src="assets/img/bg/sr-box-bg-1.jpg"></div>
-                    <div class="service-top">
-                        <div class="service-icon"><img src="assets/img/icon/sr-icon-1-3.png" alt="Features"></div>
-                        <span class="service-number">03</span>
-                    </div>
-                    <h3 class="service-title h5"><a href="service-details.html">Machine Learning</a></h3>
-                    <p class="service-text">Cardinate premier technology without sustainable leadership work...</p>
-                    <a href="service-details.html" class="link-btn">Read More<i
-                            class="far fa-long-arrow-right"></i></a>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4">
-                <div class="service-style1 layout3">
-                    <div class="service-bg" data-bg-src="assets/img/bg/sr-box-bg-1.jpg"></div>
-                    <div class="service-top">
-                        <div class="service-icon"><img src="assets/img/icon/sr-icon-1-4.png" alt="Features"></div>
-                        <span class="service-number">04</span>
-                    </div>
-                    <h3 class="service-title h5"><a href="service-details.html">Business Analycis</a></h3>
-                    <p class="service-text">Cardinate premier technology without sustainable leadership work...</p>
-                    <a href="service-details.html" class="link-btn">Read More<i
-                            class="far fa-long-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section data-bg-src="assets/img/bg/about-bg-5-1.jpg">
+<section data-bg-src="<?= $app_path ?>assets/img/bg/about-bg-5-1.jpg">
     <div class="container container-style1">
         <div class="row flex-row-reverse align-items-center gx-70">
-            <div class="col-lg-6 col-xl"><img src="assets/img/about/ab-7-1.jpg" alt="about image"></div>
+            <div class="col-lg-6 col-xl"><img src="<?= $app_path ?>assets/img/about/ab-7-1.jpg" alt="about image"></div>
             <div class="col-lg-6 col-xl-auto wow fadeInUp" data-wow-delay="0.2s">
-                <div class="about-box2"><span class="sec-subtitle"><i class="fas fa-bring-forward"></i>Get best It
-                        solution 2022</span>
-                    <h2 class="sec-title3 h1">Inspiring Tech Needs for Business</h2>
-                    <p>Dynamically monetize web-enabled processes through client-based action items. Authoritatively
-                        grow goal is oriented markets through ompletely generate technically sound content without
-                        robust users.</p>
-                    <div
-                        class="row gx-0 align-items-center flex-row-reverse justify-content-end mt-sm-3 pt-sm-3 mb-30 pb-10">
-                        <div class="col-sm-auto">
-                            <p class="author-degi">Founder & CEO</p>
-                            <h3 class="h5 author-name">Adam Smith</h3>
-                        </div>
-                        <div class="col-sm-auto">
-                            <div class="about-call">
-                                <div class="about-call__icon"><i class="fas fa-phone-alt"></i></div>
-                                <div class="media-body"><span class="about-call__label">Call To Ask Any
-                                        Queary</span>
-                                    <p class="about-call__number"><a href="tel:+25821562154">+(258) 2156 2154</a>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div><a href="about.html" class="vs-btn">About Us<i class="far fa-long-arrow-right"></i></a>
+                <div class="about-box2"><span class="sec-subtitle"><i class="fas fa-bring-forward"></i>Your Trusted Partner in Accounting & Compliance</span>
+                    <h2 class="sec-title3 h1">Compliance Focused Accounting Experts</h2>
+                    <p>Easy Plus Accounting & Records Management is a licensed and trusted service provider specializing in professional accounting, bookkeeping, taxation, and government documentation services. We support businesses across multiple industries, including restaurants, construction, trading, service-based companies, and startups, ensuring compliance with all regulatory and financial requirements.<br>
+
+                        Our team of qualified professionals delivers accurate financial reporting, systematic record management, and timely tax compliance to help businesses maintain transparency and operational efficiency. We implement structured accounting systems that support informed decision-making, risk reduction, and sustainable business<br> growth.
+
+                        In addition to core accounting services, we assist with government documentation, approvals, and regulatory coordination, enabling clients to manage compliance processes smoothly and efficiently. Our compliance-driven approach ensures that businesses remain audit-ready and aligned with evolving regulations at all times.<br>
+
+                        At Easy Plus Accounting & Records Management, we are committed to providing reliable, secure, and scalable accounting solutions that add long-term value and support the financial stability of our clients.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<section class="space-top space-extra-bottom">
+    <div class="container">
+        <div class="row">
+            <!-- <div class="col-lg-6 mb-30 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="img-box4">
+                    <div class="img-1"><img src="<?= $app_path ?>assets/img/about/ab-3-1.jpg" alt="about image"></div>
+                    <div class="img-2"><img src="<?= $app_path ?>assets/img/about/ab-3-2.jpg" alt="about image"></div>
+                </div>
+            </div> -->
+            <div class="col-lg-12 text-center mb-30 wow fadeInUp" data-wow-delay="0.2s">
+                <span class="sec-subtitle"><i
+                        class="fas fa-bring-forward"></i>Accounting Made Clear & Simple</span>
+                <h2 class="sec-title3 h1 mb-3 pb-3">Our Working Method</h2>
+            </div>
+            <div class="col-lg-6 mb-30 pt-10 pt-lg-0 text-center text-md-start">
+                
+                <div class="media-order">
+                    <div class="media-order__number">01</div>
+                    <div class="media-body">
+                        <h3 class="media-order__title h6">Clean and structured accounting</h3>
+                        <p class="media-order__text">We maintain clean and organized accounting records that provide clarity, accuracy, and a structured overview of your financial operations.</p>
+                    </div>
+                </div>
+                <div class="media-order">
+                    <div class="media-order__number">02</div>
+                    <div class="media-body">
+                        <h3 class="media-order__title h6">Timely filings</h3>
+                        <p class="media-order__text">Our team ensures all tax, regulatory, and statutory filings are completed on time, helping your business stay fully compliant and audit-ready.</p>
+                    </div>
+                </div>
+                <div class="media-order">
+                    <div class="media-order__number">03</div>
+                    <div class="media-body">
+                        <h3 class="media-order__title h6">Step-by-step guidance</h3>
+                        <p class="media-order__text">We guide you through every financial process step by step, simplifying complex procedures and ensuring you always understand your accounting and compliance requirements.</p>
+                    </div>
+                </div>
+                
+
+            </div>
+            <div class="col-lg-6 mb-30 pt-10 pt-lg-0 text-center text-md-start">
+                <div class="media-order">
+                    <div class="media-order__number">04</div>
+                    <div class="media-body">
+                        <h3 class="media-order__title h6">Transparent service</h3>
+                        <p class="media-order__text">Our services are fully transparent, providing you with clear reports, open communication, and complete visibility into every aspect of your financial management.</p>
+                    </div>
+                </div>
+                <div class="media-order">
+                    <div class="media-order__number">05</div>
+                    <div class="media-body">
+                        <h3 class="media-order__title h6">Practical business advice</h3>
+                        <p class="media-order__text">We offer actionable business advice based on accurate financial data, helping you make informed decisions and drive sustainable growth for your company.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="space-top space-extra-bottom">
     <div class="container wow fadeInUp" data-wow-delay="0.2s">
         <div class="row justify-content-center text-center">
@@ -118,7 +107,7 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="assets/img/team/t-2-1.jpg" alt="image"></a>
+                                src="<?= $app_path ?>assets/img/team/t-2-1.jpg" alt="image"></a>
                         <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
                                     class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
@@ -137,7 +126,7 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="assets/img/team/t-2-2.jpg" alt="image"></a>
+                                src="<?= $app_path ?>assets/img/team/t-2-2.jpg" alt="image"></a>
                         <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
                                     class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
@@ -156,7 +145,7 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="assets/img/team/t-2-3.jpg" alt="image"></a>
+                                src="<?= $app_path ?>assets/img/team/t-2-3.jpg" alt="image"></a>
                         <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
                                     class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
@@ -175,7 +164,7 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="assets/img/team/t-2-4.jpg" alt="image"></a>
+                                src="<?= $app_path ?>assets/img/team/t-2-4.jpg" alt="image"></a>
                         <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
                                     class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
                             <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
@@ -192,7 +181,7 @@
         </div>
     </div>
 </section>
-<section class="space-top space-extra-bottom" data-bg-src="assets/img/bg/testi-bg-4-1.jpg">
+<section class="space-top space-extra-bottom" data-bg-src="<?= $app_path ?>assets/img/bg/testi-bg-4-1.jpg">
     <div class="container wow fadeInUp" data-wow-delay="0.2s">
         <div class="row justify-content-between align-items-center">
             <div class="col-lg-5 text-center text-lg-start">
@@ -210,7 +199,7 @@
             <div class="col-xl-6">
                 <div class="testi-style2">
                     <div class="testi-body">
-                        <div class="author-img"><img src="assets/img/testimonial/auth-4-1.jpg" alt="Testimonial">
+                        <div class="author-img"><img src="<?= $app_path ?>assets/img/testimonial/auth-4-1.jpg" alt="Testimonial">
                         </div>
                         <div class="media-body">
                             <p class="testi-text">“Quickly formulate high yield web services before functional
@@ -224,7 +213,7 @@
             <div class="col-xl-6">
                 <div class="testi-style2">
                     <div class="testi-body">
-                        <div class="author-img"><img src="assets/img/testimonial/auth-4-2.jpg" alt="Testimonial">
+                        <div class="author-img"><img src="<?= $app_path ?>assets/img/testimonial/auth-4-2.jpg" alt="Testimonial">
                         </div>
                         <div class="media-body">
                             <p class="testi-text">“Lorem ipsum, or lipsum as it is sometimes known, is dummy text
@@ -238,7 +227,7 @@
             <div class="col-xl-6">
                 <div class="testi-style2">
                     <div class="testi-body">
-                        <div class="author-img"><img src="assets/img/testimonial/auth-4-3.jpg" alt="Testimonial">
+                        <div class="author-img"><img src="<?= $app_path ?>assets/img/testimonial/auth-4-3.jpg" alt="Testimonial">
                         </div>
                         <div class="media-body">
                             <p class="testi-text">“The passage experienced a surge in popularity during the 1960s
@@ -252,7 +241,7 @@
         </div>
     </div>
 </section>
-<section class="z-index-common space" data-bg-src="assets/img/bg/cta-bg-1-2.jpg">
+<section class="z-index-common space" data-bg-src="<?= $app_path ?>assets/img/bg/cta-bg-1-2.jpg">
     <div class="container">
         <div class="row text-center text-lg-start align-items-center justify-content-between">
             <div class="col-lg-auto"><span class="sec-subtitle text-white">We are here to answer your questions
@@ -276,10 +265,10 @@
         <div class="row vs-carousel" data-slide-show="3" data-md-slide-show="2">
             <div class="col-xl-4">
                 <div class="vs-blog blog-style1">
-                    <div class="blog-img"><img src="assets/img/blog/blog-1-1.jpg" alt="Blog Image" class="w-100">
+                    <div class="blog-img"><img src="<?= $app_path ?>assets/img/blog/blog-1-1.jpg" alt="Blog Image" class="w-100">
                         <div class="blog-content">
-                            <div class="blog-meta"><a href="blog.html"><i class="far fa-calendar"></i>24 Feb,
-                                    2022</a> <a href="blog.html"><i class="fal fa-user"></i>by admin</a></div>
+                            <div class="blog-meta"><a href="<?= $app_path ?>"><i class="far fa-calendar"></i>24 Feb,
+                                    2022</a> <a href="<?= $app_path ?>"><i class="fal fa-user"></i>by admin</a></div>
                             <h3 class="blog-title h5"><a href="blog-details.html">Contrary to popular belief ipsum
                                     is not simply</a></h3><a href="blog-details.html" class="link-btn">Read
                                 Details<i class="far fa-arrow-right"></i></a>
@@ -289,10 +278,10 @@
             </div>
             <div class="col-xl-4">
                 <div class="vs-blog blog-style1">
-                    <div class="blog-img"><img src="assets/img/blog/blog-1-4.jpg" alt="Blog Image" class="w-100">
+                    <div class="blog-img"><img src="<?= $app_path ?>assets/img/blog/blog-1-4.jpg" alt="Blog Image" class="w-100">
                         <div class="blog-content">
-                            <div class="blog-meta"><a href="blog.html"><i class="far fa-calendar"></i>30 Mar,
-                                    2022</a> <a href="blog.html"><i class="fal fa-user"></i>by admin</a></div>
+                            <div class="blog-meta"><a href="<?= $app_path ?>"><i class="far fa-calendar"></i>30 Mar,
+                                    2022</a> <a href="<?= $app_path ?>"><i class="fal fa-user"></i>by admin</a></div>
                             <h3 class="blog-title h5"><a href="blog-details.html">Lorem ipsum placeholder text
                                     commonly used</a></h3><a href="blog-details.html" class="link-btn">Read
                                 Details<i class="far fa-arrow-right"></i></a>
@@ -302,10 +291,10 @@
             </div>
             <div class="col-xl-4">
                 <div class="vs-blog blog-style1">
-                    <div class="blog-img"><img src="assets/img/blog/blog-1-2.jpg" alt="Blog Image" class="w-100">
+                    <div class="blog-img"><img src="<?= $app_path ?>assets/img/blog/blog-1-2.jpg" alt="Blog Image" class="w-100">
                         <div class="blog-content">
-                            <div class="blog-meta"><a href="blog.html"><i class="far fa-calendar"></i>31 Jul,
-                                    2022</a> <a href="blog.html"><i class="fal fa-user"></i>by admin</a></div>
+                            <div class="blog-meta"><a href="<?= $app_path ?>"><i class="far fa-calendar"></i>31 Jul,
+                                    2022</a> <a href="<?= $app_path ?>"><i class="fal fa-user"></i>by admin</a></div>
                             <h3 class="blog-title h5"><a href="blog-details.html">From its medieval to the digital
                                     learn everything</a></h3><a href="blog-details.html" class="link-btn">Read
                                 Details<i class="far fa-arrow-right"></i></a>
@@ -315,10 +304,10 @@
             </div>
             <div class="col-xl-4">
                 <div class="vs-blog blog-style1">
-                    <div class="blog-img"><img src="assets/img/blog/blog-1-3.jpg" alt="Blog Image" class="w-100">
+                    <div class="blog-img"><img src="<?= $app_path ?>assets/img/blog/blog-1-3.jpg" alt="Blog Image" class="w-100">
                         <div class="blog-content">
-                            <div class="blog-meta"><a href="blog.html"><i class="far fa-calendar"></i>26 Aug,
-                                    2022</a> <a href="blog.html"><i class="fal fa-user"></i>by admin</a></div>
+                            <div class="blog-meta"><a href="<?= $app_path ?>"><i class="far fa-calendar"></i>26 Aug,
+                                    2022</a> <a href="<?= $app_path ?>"><i class="fal fa-user"></i>by admin</a></div>
                             <h3 class="blog-title h5"><a href="blog-details.html">Global Business Goal Make Life
                                     Easy From Tech</a></h3><a href="blog-details.html" class="link-btn">Read
                                 Details<i class="far fa-arrow-right"></i></a>

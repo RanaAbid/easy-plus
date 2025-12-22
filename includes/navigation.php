@@ -5,7 +5,7 @@
             <ul>
                 <li><a href="<?= $app_path ?>">Home</a></li>
                 <li><a href="<?= $app_path ?>service/">Services</a></li>
-                <li><a href="<?= $app_path ?>">About Us</a></li>
+                <li><a href="<?= $app_path ?>about-us/">About Us</a></li>
                 <li><a href="<?= $app_path ?>contact-us/">Contact Us</a></li>
             </ul>
         </div>
@@ -60,7 +60,7 @@
                             <ul>
                                 <li><a href="<?= $app_path ?>">Home</a></li>
                                 <li><a href="<?= $app_path ?>services/">Services</a></li>
-                                <li><a href="<?= $app_path ?>">About Us</a></li>
+                                <li><a href="<?= $app_path ?>about-us/">About Us</a></li>
                                 <li><a href="<?= $app_path ?>contact-us/">Contact</a></li>
                             </ul>
                         </nav><button class="vs-menu-toggle d-inline-block d-lg-none"><i class="fal fa-bars"></i></button>
