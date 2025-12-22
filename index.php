@@ -83,13 +83,13 @@
            </div>
        </div>
    </section>
-   <div data-bg-src="assets/img/bg/ab-bg-1-1.jpg">
+   <div data-bg-src="<?= $app_path ?>assets/img/bg/ab-bg-1-1.jpg">
        <section class="feature-wrap1 space-top space-extra-bottom">
            <div class="container wow fadeInUp" data-wow-delay="0.2s">
                <div class="row vs-carousel" data-slide-show="3" data-lg-slide-show="2" data-md-slide-show="2">
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="assets/img/icon/fe-1-1.png" alt="Features"></div>
+                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-1.png" alt="Features"></div>
                            <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Development
                                    Services</a></h3>
                            <p class="feature-text">Completely implement via highly efficient process improvements.
@@ -99,7 +99,7 @@
                    </div>
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="assets/img/icon/fe-1-2.png" alt="Features"></div>
+                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-2.png" alt="Features"></div>
                            <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Marketing
                                    Services</a></h3>
                            <p class="feature-text">Completely implement via highly efficient process improvements.
@@ -109,7 +109,7 @@
                    </div>
                    <div class="col-xl-4">
                        <div class="feature-style1">
-                           <div class="feature-icon"><img src="assets/img/icon/fe-1-3.png" alt="Features"></div>
+                           <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-3.png" alt="Features"></div>
                            <h3 class="feature-title h5"><a class="text-inherit" href="service-details.html">Consulting
                                    Services</a></h3>
                            <p class="feature-text">Completely implement via highly efficient process improvements.
@@ -125,8 +125,8 @@
                <div class="row gx-60">
                    <div class="col-lg-6 col-xl-5 mb-50 mb-lg-0 wow fadeInUp" data-wow-delay="0.2s">
                        <div class="img-box1">
-                           <div class="img-1"><img src="assets/img/about/ab-1-1.jpg" alt="About image"></div>
-                           <div class="img-2"><img src="assets/img/about/ab-1-2.jpg" alt="About image"> <a
+                           <div class="img-1"><img src="<?= $app_path ?>assets/img/about/ab-1-1.jpg" alt="About image"></div>
+                           <div class="img-2"><img src="<?= $app_path ?>assets/img/about/ab-1-2.jpg" alt="About image"> <a
                                    class="play-btn style2 position-center popup-video"
                                    href="../../../www.youtube.com/watch7eaa.html?v=_sI_Ps7JSEk"><i class=""><i
                                            class="fas fa-play"></i></i></a></div>
@@ -140,7 +140,7 @@
                            visionary quality vectors after covalent e-tailers. Intrinsicly enhance 24/7 users and
                            supply process</p>
                        <div class="call-media">
-                           <div class="call-media__icon"><img src="assets/img/icon/tel-1-1.png" alt="icon"></div>
+                           <div class="call-media__icon"><img src="<?= $app_path ?>assets/img/icon/tel-1-1.png" alt="icon"></div>
                            <div class="media-body"><span class="call-media__label">24 HOURS SERVICE AVAILABLE</span>
                                <p class="call-media__info">Call Us: <a href="tel:+6668880000">+(666) 888 0000</a></p>
                            </div>

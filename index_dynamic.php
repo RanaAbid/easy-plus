@@ -157,7 +157,7 @@ $cta = getCTASection($link);
                     <!-- Fallback features -->
                     <div class="col-xl-4">
                         <div class="feature-style1">
-                            <div class="feature-icon"><img src="assets/img/icon/fe-1-1.png" alt="Features" loading="lazy"></div>
+                            <div class="feature-icon"><img src="<?= $app_path ?>assets/img/icon/fe-1-1.png" alt="Features" loading="lazy"></div>
                             <h3 class="feature-title h5"><a class="text-inherit" href="#">Development Services</a></h3>
                             <p class="feature-text">Completely implement via highly efficient process improvements.</p>
                         </div>
@@ -203,7 +203,7 @@ $cta = getCTASection($link);
                     <?php endif; ?>
                     <?php if ($about['call_number']): ?>
                     <div class="call-media">
-                        <div class="call-media__icon"><img src="assets/img/icon/tel-1-1.png" alt="icon" loading="lazy"></div>
+                        <div class="call-media__icon"><img src="<?= $app_path ?>assets/img/icon/tel-1-1.png" alt="icon" loading="lazy"></div>
                         <div class="media-body">
                             <span class="call-media__label">24 HOURS SERVICE AVAILABLE</span>
                             <p class="call-media__info">Call Us: <a href="tel:<?= htmlspecialchars($about['call_number']) ?>"><?= htmlspecialchars($about['call_number']) ?></a></p>
