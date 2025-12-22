@@ -299,7 +299,7 @@
                <div class="col-lg-auto"><span class="sec-subtitle text-white">We are here to answer your questions 24/7</span>
                    <h2 class="h1 sec-title cta-title1">Need A Consultation?</h2>
                </div>
-               <div class="col-lg-auto"><a href="contact.html" class="vs-btn">Get A Quote<i class="far fa-arrow-right"></i></a></div>
+               <div class="col-lg-auto"><a href="<?= $app_path ?>contact-us/" class="vs-btn">Get A Quote<i class="far fa-arrow-right"></i></a></div>
            </div>
        </div>
    </section>
