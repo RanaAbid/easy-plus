@@ -36,8 +36,12 @@
                     <div class="widget footer-widget">
                         <h3 class="widget_title">About Us</h3>
                         <div class="vs-widget-about">
-                            <p class="footer-text">Intrinsicly evisculate emerging cutting edge scenarios redefine future-proof e-markets demand line</p>
-                            <div class="footer-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a> <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i class="fab fa-youtube"></i></a></div>
+                            <p class="footer-text">Licensed UAE accounting and business support firm providing reliable bookkeeping, tax, visa, and government documentation services with accuracy and professionalism.</p>
+                            <div class="footer-social">
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -46,10 +50,9 @@
                         <h3 class="widget_title">Links</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
+                                <li><a href="#">Home</a></li>
+                                <li><a href="#">Services</a></li>
                                 <li><a href="#">About Us</a></li>
-                                <li><a href="#">Our Mission</a></li>
-                                <li><a href="#">Meet The Teams</a></li>
-                                <li><a href="#">Our Projects</a></li>
                                 <li><a href="#">Contact Us</a></li>
                             </ul>
                         </div>
@@ -57,13 +60,14 @@
                 </div>
                 <div class="col-md-6 col-lg-2 col-xl-auto">
                     <div class="widget widget_nav_menu footer-widget">
-                        <h3 class="widget_title">Explore</h3>
+                        <h3 class="widget_title">Services</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="#">What we Offer</a></li>
-                                <li><a href="#">Our Story</a></li>
-                                <li><a href="#">Latest Posts</a></li>
-                                <li><a href="#">Help Center</a></li>
+                                <li><a href="#">Service1</a></li>
+                                <li><a href="#">Service2</a></li>
+                                <li><a href="#">Service3</a></li>
+                                <li><a href="#">Service4</a></li>
+                                <li><a href="#">Service5</a></li>
                             </ul>
                         </div>
                     </div>

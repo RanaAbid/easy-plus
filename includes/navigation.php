@@ -1,6 +1,6 @@
 <div class="vs-menu-wrapper">
     <div class="vs-menu-area text-center"><button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-        <div class="mobile-logo"><a href="<?= $app_path ?>"><img src="<?=$app_path?>assets/img/logo.png" alt="TechBiz" class="logo"></a></div>
+        <div class="mobile-logo"><a href="<?= $app_path ?>"><img src="<?= $app_path ?>assets/img/logo.png" alt="TechBiz" class="logo"></a></div>
         <div class="vs-mobile-menu">
             <ul>
                 <li><a href="<?= $app_path ?>">Home</a></li>
@@ -19,7 +19,12 @@
                     <p class="header-text"><span class="fw-medium">Now Hiring:</span> Are you a driven and motivated 1st Line IT Support Engineer?</p>
                 </div>
                 <div class="col-lg-auto">
-                    <div class="header-social style-white"><span class="social-title">Follow Us On: </span><a href="<?= $app_path ?>#"><i class="fab fa-facebook-f"></i></a> <a href="<?= $app_path ?>#"><i class="fab fa-twitter"></i></a> <a href="<?= $app_path ?>#"><i class="fab fa-instagram"></i></a> <a href="<?= $app_path ?>#"><i class="fab fa-behance"></i></a> <a href="<?= $app_path ?>#"><i class="fab fa-youtube"></i></a></div>
+                    <div class="header-social style-white">
+                        <span class="social-title">Follow Us On: </span>
+                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    </div>
                 </div>
             </div>
         </div>

@@ -106,18 +106,19 @@
                 <div class="team-style2">
                     <div class="team-img">
                         <div class="team-shape1"></div>
-                        <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="<?= $app_path ?>assets/img/team/t-2-1.jpg" alt="image"></a>
-                        <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
-                                    class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
-                                    class="fab fa-youtube"></i></a>
+                        <div class="team-shape2"></div>
+                        <a href="team-details.html">
+                            <img src="<?= $app_path ?>assets/img/easyplus/team/member3.jpg" alt="image">
+                        </a>
+                        <div class="team-social">
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="team-content">
-                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Grayson
-                                Gabriel</a></h3>
-                        <p class="team-degi">Cheif Expert</p>
+                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Ahmed Khan</a></h3>
+                        <p class="team-degi">Managing Director</p>
                     </div>
                 </div>
             </div>
@@ -126,17 +127,17 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="<?= $app_path ?>assets/img/team/t-2-2.jpg" alt="image"></a>
-                        <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
-                                    class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
-                                    class="fab fa-youtube"></i></a>
+                                src="<?= $app_path ?>assets/img/easyplus/team/member1.jpg" alt="image"></a>
+                        <div class="team-social">
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="team-content">
-                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Samuel Thomas</a>
+                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Bilal Ahmed</a>
                         </h3>
-                        <p class="team-degi">Cheif Expert</p>
+                        <p class="team-degi">Head of Accounting & Bookkeeping</p>
                     </div>
                 </div>
             </div>
@@ -145,17 +146,17 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="<?= $app_path ?>assets/img/team/t-2-3.jpg" alt="image"></a>
-                        <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
-                                    class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
-                                    class="fab fa-youtube"></i></a>
+                                src="<?= $app_path ?>assets/img/easyplus/team/member2.jpg" alt="image"></a>
+                        <div class="team-social">
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="team-content">
-                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">William Lucas</a>
+                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Omar Farooq</a>
                         </h3>
-                        <p class="team-degi">Cheif Expert</p>
+                        <p class="team-degi">VAT & Corporate Tax Specialist</p>
                     </div>
                 </div>
             </div>
@@ -164,17 +165,16 @@
                     <div class="team-img">
                         <div class="team-shape1"></div>
                         <div class="team-shape2"></div><a href="team-details.html"><img
-                                src="<?= $app_path ?>assets/img/team/t-2-4.jpg" alt="image"></a>
-                        <div class="team-social"><a href="#"><i class="fab fa-facebook-f"></i></a> <a href="#"><i
-                                    class="fab fa-twitter"></i></a> <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a> <a href="#"><i
-                                    class="fab fa-youtube"></i></a>
+                                src="<?= $app_path ?>assets/img/easyplus/team/member3.jpg" alt="image"></a>
+                        <div class="team-social">
+                            <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="team-content">
-                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Daniel
-                                Matthew</a></h3>
-                        <p class="team-degi">Cheif Expert</p>
+                        <h3 class="team-title h5"><a class="text-inherit" href="team-details.html">Usman Raza</a></h3>
+                        <p class="team-degi">Visa & Immigration Officer</p>
                     </div>
                 </div>
             </div>
