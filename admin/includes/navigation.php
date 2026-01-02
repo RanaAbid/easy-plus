@@ -10,15 +10,6 @@
                             <i data-feather="menu"></i>
                         </button>
                     </li>
-                    <li>
-                        <form class="src-form position-relative">
-                            <input type="text" class="form-control" placeholder="Search here..">
-                            <button type="submit"
-                                class="src-btn position-absolute top-50 end-0 translate-middle-y bg-transparent p-0 border-0">
-                                <i data-feather="search"></i>
-                            </button>
-                        </form>
-                    </li>
                     <li class="d-none d-lg-block ms-3">
                         <div class="dropdown">
                             <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">

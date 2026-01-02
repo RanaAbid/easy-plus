@@ -5,7 +5,7 @@
              <h1 class="breadcumb-title text-capitalize">Accounting & Bookkeeping</h1>
              <div class="breadcumb-menu-wrap">
                  <ul class="breadcumb-menu">
-                     <li><a href="index.html">Home</a></li>
+                     <li><a href="<?= $app_path ?>">Home</a></li>
                      <li class="text-capitalize">Accounting & bookkeeping</li>
                  </ul>
              </div>

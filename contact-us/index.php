@@ -24,7 +24,7 @@ if (empty($services)) {
             <h1 class="breadcumb-title">Contact Us</h1>
             <div class="breadcumb-menu-wrap">
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="<?= $app_path ?>">Home</a></li>
                     <li>Contact Us</li>
                 </ul>
             </div>

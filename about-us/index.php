@@ -5,7 +5,7 @@
             <h1 class="breadcumb-title">About Us</h1>
             <div class="breadcumb-menu-wrap">
                 <ul class="breadcumb-menu">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="<?= $app_path ?>">Home</a></li>
                     <li>About Us</li>
                 </ul>
             </div>
