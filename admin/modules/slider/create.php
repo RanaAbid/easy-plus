@@ -73,8 +73,8 @@ include("../../includes/header.php");
                                 <img id="desktop_preview_img" src="" alt="Desktop Preview" style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 2px solid #ddd;">
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> Image selected</p>
                             </div>
-                            <small class="text-muted fw-bold d-block mt-2">
-                                Desktop & laptop image: 1900 × 850 px (WebP format for optimization)
+                            <small class="text-danger fw-bold d-block mt-2">
+                                <strong>Required:</strong> Desktop image must be at least <strong>1920 × 600 px</strong> (16:9 aspect ratio recommended)
                             </small>
                         </div>
                     </div>
@@ -94,8 +94,8 @@ include("../../includes/header.php");
                                 <img id="mobile_preview_img" src="" alt="Mobile Preview" style="max-width: 100%; max-height: 200px; border-radius: 8px; border: 2px solid #ddd;">
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> Image selected</p>
                             </div>
-                            <small class="text-muted fw-bold d-block mt-2">
-                                Mobile & small screen image: 430 × 380 px (WebP format for optimization)
+                            <small class="text-danger fw-bold d-block mt-2">
+                                <strong>Required:</strong> Mobile image must be at least <strong>768 × 1024 px</strong> (portrait orientation)
                             </small>
                         </div>
                     </div>

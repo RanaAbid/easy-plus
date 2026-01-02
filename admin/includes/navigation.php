@@ -19,6 +19,25 @@
                             </button>
                         </form>
                     </li>
+                    <li class="d-none d-lg-block ms-3">
+                        <div class="dropdown">
+                            <button class="btn btn-sm btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i data-feather="zap" class="me-1" style="width: 14px; height: 14px;"></i> Quick Links
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><h6 class="dropdown-header">Content</h6></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/slider/"><i data-feather="image" style="width: 14px; height: 14px;" class="me-2"></i> Hero Slider</a></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/services/"><i data-feather="briefcase" style="width: 14px; height: 14px;" class="me-2"></i> Services</a></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/testimonials/"><i data-feather="message-square" style="width: 14px; height: 14px;" class="me-2"></i> Testimonials</a></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/team/"><i data-feather="users" style="width: 14px; height: 14px;" class="me-2"></i> Team</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><h6 class="dropdown-header">Management</h6></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/contacts/"><i data-feather="mail" style="width: 14px; height: 14px;" class="me-2"></i> Contact Inquiries</a></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/gallery/"><i data-feather="image" style="width: 14px; height: 14px;" class="me-2"></i> Gallery</a></li>
+                                <li><a class="dropdown-item" href="<?= $app_path ?>modules/settings/"><i data-feather="settings" style="width: 14px; height: 14px;" class="me-2"></i> Settings</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -66,18 +85,34 @@
                                     <a class="dropdown-item d-flex align-items-center text-body"
                                         href="<?= $app_path ?>modules/dashboard/">
                                         <i data-feather="user"></i>
-                                        <span class="ms-2">Profile</span>
+                                        <span class="ms-2">My Profile</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
                                         href="<?= $app_path ?>modules/dashboard/">
-                                        <i data-feather="settings"></i>
-                                        <span class="ms-2">Setting</span>
+                                        <i data-feather="home"></i>
+                                        <span class="ms-2">Dashboard</span>
                                     </a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center text-body"
+                                        href="<?= $app_path ?>modules/settings/">
+                                        <i data-feather="settings"></i>
+                                        <span class="ms-2">Settings</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center text-body"
+                                        href="<?= str_replace('/admin/', '/', $app_path) ?>" target="_blank">
+                                        <i data-feather="external-link"></i>
+                                        <span class="ms-2">View Website</span>
+                                    </a>
+                                </li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center text-danger"
                                         href="<?= $app_path ?>logout.php">
                                         <i data-feather="log-out"></i>
                                         <span class="ms-2">Logout</span>

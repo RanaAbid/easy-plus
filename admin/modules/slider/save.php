@@ -18,17 +18,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $image_desktop = '';
     if (isset($_FILES['txt_image_desktop']) && $_FILES['txt_image_desktop']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_image_desktop'], $root_path . '../assets/img/hero/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_image_desktop'], $root_path . '../assets/img/hero/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'min_width' => 1920,
+            'min_height' => 600,
+            'aspect_ratio' => 16/9,
+            'aspect_tolerance' => 0.2
+        ]);
         if ($uploadResult['success']) {
             $image_desktop = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Desktop Image: ' . $uploadResult['message'];
+            header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+            exit;
         }
     }
     
     $image_mobile = '';
     if (isset($_FILES['txt_image_mobile']) && $_FILES['txt_image_mobile']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_image_mobile'], $root_path . '../assets/img/hero/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_image_mobile'], $root_path . '../assets/img/hero/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'min_width' => 768,
+            'min_height' => 1024
+        ]);
         if ($uploadResult['success']) {
             $image_mobile = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Mobile Image: ' . $uploadResult['message'];
+            header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+            exit;
         }
     }
     

@@ -103,7 +103,7 @@ if (!$slider) {
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> New image selected</p>
                             </div>
                             <small class="text-muted fw-bold d-block mt-2">
-                                Desktop & laptop image: 1900 × 850 px (WebP format for optimization)
+                                <strong>Required:</strong> Desktop image must be at least <strong>1920 × 600 px</strong> (16:9 aspect ratio recommended)
                             </small>
                         </div>
                     </div>
@@ -139,7 +139,7 @@ if (!$slider) {
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> New image selected</p>
                             </div>
                             <small class="text-muted fw-bold d-block mt-2">
-                                Mobile & small screen image: 430 × 380 px (WebP format for optimization)
+                                <strong>Required:</strong> Mobile image must be at least <strong>768 × 1024 px</strong> (portrait orientation)
                             </small>
                         </div>
                     </div>

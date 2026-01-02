@@ -15,17 +15,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $icon = '';
     if (isset($_FILES['txt_icon']) && $_FILES['txt_icon']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_icon'], $root_path . '../assets/img/icon/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_icon'], $root_path . '../assets/img/icon/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'width' => 64,
+            'height' => 64
+        ]);
         if ($uploadResult['success']) {
             $icon = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Icon Image: ' . $uploadResult['message'];
+            header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+            exit;
         }
     }
     
     $background_image = '';
     if (isset($_FILES['txt_background_image']) && $_FILES['txt_background_image']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_background_image'], $root_path . '../assets/img/bg/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_background_image'], $root_path . '../assets/img/bg/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'min_width' => 1920,
+            'min_height' => 600
+        ]);
         if ($uploadResult['success']) {
             $background_image = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Background Image: ' . $uploadResult['message'];
+            header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+            exit;
         }
     }
     

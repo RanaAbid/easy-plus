@@ -12,12 +12,12 @@
      </div>
      <aside id="layout-menu" class="layout-menu menu-vertical menu active" data-simplebar>
          <ul class="menu-inner">
-             <li class="menu-item open">
-                 <a href="javascript:void(0);" class="menu-link  active">
-                     <i data-feather="grid" class="menu-icon tf-icons"></i>
-                     <span class="title">Dashboard</span>
-                 </a>
-             </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/dashboard/" class="menu-link">
+                    <i data-feather="grid" class="menu-icon tf-icons"></i>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
             <li class="menu-title small text-uppercase">
                 <span class="menu-title-text">CMS For EASY PLUS</span>
             </li>
@@ -69,6 +69,72 @@
                     <span class="title">CTA Section</span>
                 </a>
             </li>
+            <li class="menu-title small text-uppercase">
+                <span class="menu-title-text">Content Management</span>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/contacts/" class="menu-link">
+                    <i data-feather="mail" class="menu-icon tf-icons"></i>
+                    <span class="title">Contact Inquiries</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/testimonials/" class="menu-link">
+                    <i data-feather="message-square" class="menu-icon tf-icons"></i>
+                    <span class="title">Testimonials</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/team/" class="menu-link">
+                    <i data-feather="users" class="menu-icon tf-icons"></i>
+                    <span class="title">Team Members</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/gallery/" class="menu-link">
+                    <i data-feather="image" class="menu-icon tf-icons"></i>
+                    <span class="title">Gallery</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/blog/" class="menu-link">
+                    <i data-feather="file-text" class="menu-icon tf-icons"></i>
+                    <span class="title">Blog/News</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/portfolio/" class="menu-link">
+                    <i data-feather="briefcase" class="menu-icon tf-icons"></i>
+                    <span class="title">Portfolio/Projects</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/service-details/" class="menu-link">
+                    <i data-feather="file" class="menu-icon tf-icons"></i>
+                    <span class="title">Service Details</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/pages/" class="menu-link">
+                    <i data-feather="file-text" class="menu-icon tf-icons"></i>
+                    <span class="title">Pages</span>
+                </a>
+            </li>
+            <li class="menu-title small text-uppercase">
+                <span class="menu-title-text">System</span>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/admin-users/" class="menu-link">
+                    <i data-feather="user" class="menu-icon tf-icons"></i>
+                    <span class="title">Admin Users</span>
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="<?= $app_path ?>modules/menu/" class="menu-link">
+                    <i data-feather="menu" class="menu-icon tf-icons"></i>
+                    <span class="title">Menu/Navigation</span>
+                </a>
+            </li>
             <li class="menu-item">
                 <a href="<?= $app_path ?>modules/settings/" class="menu-link">
                     <i data-feather="settings" class="menu-icon tf-icons"></i>
@@ -86,7 +152,13 @@
              </div>
              <div class="flex-grow-1 ms-3 info">
                  <a href="<?= $app_path ?>modules/dashboard/" class="d-block name"><?= htmlspecialchars($adminUser['name'] ?? 'Admin') ?></a>
-                 <a href="<?= $app_path ?>logout.php" class="text-danger">Log Out</a>
+                 <div class="d-flex align-items-center gap-2 mt-1">
+                     <a href="<?= str_replace('/admin/', '/', $app_path) ?>" target="_blank" class="text-primary small" title="View Website">
+                         <i data-feather="external-link" style="width: 14px; height: 14px;"></i> Website
+                     </a>
+                     <span class="text-muted">|</span>
+                     <a href="<?= $app_path ?>logout.php" class="text-danger small">Log Out</a>
+                 </div>
              </div>
          </div>
      </div>

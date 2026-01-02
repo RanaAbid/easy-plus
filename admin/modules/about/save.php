@@ -17,17 +17,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     $image_1 = '';
     if (isset($_FILES['txt_image_1']) && $_FILES['txt_image_1']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_image_1'], $root_path . '../assets/img/about/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_image_1'], $root_path . '../assets/img/about/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'min_width' => 800,
+            'min_height' => 600
+        ]);
         if ($uploadResult['success']) {
             $image_1 = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Image 1: ' . $uploadResult['message'];
+            header("Location: edit.php" . ($id > 0 ? "?id=$id" : ""));
+            exit;
         }
     }
     
     $image_2 = '';
     if (isset($_FILES['txt_image_2']) && $_FILES['txt_image_2']['error'] == UPLOAD_ERR_OK) {
-        $uploadResult = uploadImage($_FILES['txt_image_2'], $root_path . '../assets/img/about/', ['png', 'jpg', 'jpeg', 'webp']);
+        $uploadResult = uploadImage($_FILES['txt_image_2'], $root_path . '../assets/img/about/', ['png', 'jpg', 'jpeg', 'webp'], [
+            'min_width' => 800,
+            'min_height' => 600
+        ]);
         if ($uploadResult['success']) {
             $image_2 = $uploadResult['filename'];
+        } else {
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Image 2: ' . $uploadResult['message'];
+            header("Location: edit.php" . ($id > 0 ? "?id=$id" : ""));
+            exit;
         }
     }
     

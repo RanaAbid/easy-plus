@@ -51,7 +51,7 @@ include("../../includes/header.php");
                                 <img id="icon_preview_img" src="" alt="Icon Preview" style="max-width: 100%; max-height: 150px; border-radius: 8px; border: 2px solid #ddd;">
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> Image selected</p>
                             </div>
-                            <small class="text-muted fw-bold d-block mt-2">Icon image: Recommended 64 × 64 px (PNG format)</small>
+                            <small class="text-muted fw-bold d-block mt-2"><strong>Required:</strong> Icon must be exactly <strong>64 × 64 px</strong> (PNG format preferred)</small>
                         </div>
                     </div>
                 </div>
@@ -76,6 +76,7 @@ include("../../includes/header.php");
                                 <img id="bg_preview_img" src="" alt="Background Preview" style="max-width: 100%; max-height: 150px; border-radius: 8px; border: 2px solid #ddd;">
                                 <p class="mt-2 text-success"><i class="ri-checkbox-circle-line"></i> Image selected</p>
                             </div>
+                            <small class="text-danger fw-bold d-block mt-2"><strong>Required:</strong> Background image must be at least <strong>1920 × 600 px</strong></small>
                         </div>
                     </div>
                 </div>

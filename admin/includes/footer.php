@@ -22,6 +22,30 @@
     <script src="<?=$app_path?>assets/js/apexcharts.min.js"></script>
     <script src="<?=$app_path?>assets/js/custom/project-management.js"></script>
     <script src="<?=$app_path?>assets/js/custom/custom.js"></script>
+    
+    <script>
+    // Highlight active menu item based on current URL
+    document.addEventListener('DOMContentLoaded', function() {
+        const currentPath = window.location.pathname;
+        const menuLinks = document.querySelectorAll('#layout-menu .menu-link');
+        
+        menuLinks.forEach(function(link) {
+            const href = link.getAttribute('href');
+            if (href && currentPath.includes(href.replace('<?= $app_path ?>', ''))) {
+                link.classList.add('active');
+                const menuItem = link.closest('.menu-item');
+                if (menuItem) {
+                    menuItem.classList.add('active');
+                }
+            }
+        });
+        
+        // Initialize feather icons for dynamically added elements
+        if (typeof feather !== 'undefined') {
+            feather.replace();
+        }
+    });
+    </script>
 </body>
 
 </html>
