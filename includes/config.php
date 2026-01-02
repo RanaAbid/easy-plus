@@ -16,8 +16,8 @@ $root_path = $_SERVER['DOCUMENT_ROOT'] . "/" . $web_dir;
 
 // Cloudflare Turnstile Configuration
 // Get these keys from your Cloudflare dashboard
-$turnstile_site_key = "YOUR_TURNSTILE_SITE_KEY"; // Replace with actual site key
-$turnstile_secret_key = "YOUR_TURNSTILE_SECRET_KEY"; // Replace with actual secret key
+$turnstile_site_key = "1x00000000000000000000BB"; // Replace with actual site key
+$turnstile_secret_key = "1x0000000000000000000000000000000AA"; // Replace with actual secret key
 
 // Office Contact Information
 $offices = [
