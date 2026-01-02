@@ -1,6 +1,7 @@
 <?php
 // Common SweetAlert JavaScript for all admin modules
 // Include this file before closing body tag in module index pages
+define('SWEETALERT_INCLUDED', true);
 ?>
 <script>
 // SweetAlert notifications - Common for all modules

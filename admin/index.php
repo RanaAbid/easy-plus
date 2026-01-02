@@ -19,6 +19,7 @@ $logged_out = isset($_GET['logged_out']);
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Admin Login</title>
   <link rel="stylesheet" href="<?=$app_path?>assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <style>
     :root{--card-bg:rgba(255, 255, 255, 1);--accent-start:#8E2DE2;--accent-end:#4A00E0;--accent-r:142;--accent-g:45;--accent-b:226}
     html,body{height:100%}
@@ -105,12 +106,6 @@ color: #f0f0f0ff;
     </div>
     <?php endif; ?>
 
-    <?php if ($error): ?>
-    <div style="background: #ef4444; color: white; padding: 12px; border-radius: 8px; margin-bottom: 16px; text-align: center; font-size: 14px;">
-      <?= htmlspecialchars($error) ?>
-    </div>
-    <?php endif; ?>
-
     <form method="post" action="authenticate.php">
       <div class="form-group">
         <input class="form-control" type="text" name="username" placeholder="Username" value="admin" required autofocus>
@@ -149,6 +144,8 @@ color: #f0f0f0ff;
       document.addEventListener('mousemove', onMove);
     })();
   </script>
+
+  <?php include('includes/sweetalert-common.php'); ?>
 
 </body>
 </html>

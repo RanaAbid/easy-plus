@@ -43,7 +43,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header("Location: " . $app_path . "modules/dashboard/");
             exit;
         } else {
-            $error = 'Invalid username or password';
+            $_SESSION['alert_type'] = 'error';
+            $_SESSION['alert_message'] = 'Invalid username or password';
         }
     }
 }
@@ -51,7 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 // Redirect back to login with error
 $redirect_url = $app_path . "index.php";
 if ($error) {
-    $redirect_url .= "?error=" . urlencode($error);
+    $_SESSION['alert_type'] = 'error';
+    $_SESSION['alert_message'] = $error;
 }
 header("Location: " . $redirect_url);
 exit;

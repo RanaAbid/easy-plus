@@ -41,7 +41,7 @@ if (!$slider) {
             </a>
         </div>
 
-        <form action="save.php" method="post" enctype="multipart/form-data" id="sliderForm">
+        <form action="save.php" method="post" enctype="multipart/form-data" id="sliderForm" novalidate>
             <input type="hidden" name="id" value="<?= $slider['id'] ?>">
             <div class="row">
                 <div class="col-lg-6">
@@ -336,6 +336,40 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Form validation
+    const sliderForm = document.getElementById('sliderForm');
+    if (sliderForm) {
+        sliderForm.addEventListener('submit', function(e) {
+            let isValid = true;
+            let errorMessages = [];
+            
+            // Validate heading
+            const heading = document.getElementById('txt_heading');
+            if (!heading || !heading.value.trim()) {
+                isValid = false;
+                errorMessages.push('Heading is required');
+                if (heading) {
+                    heading.classList.add('is-invalid');
+                }
+            } else {
+                if (heading) heading.classList.remove('is-invalid');
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    html: errorMessages.join('<br>'),
+                    timer: 4000,
+                    toast: true,
+                    position: 'top-end'
+                });
+                return false;
+            }
+        });
+    }
+    
     // Drag and drop support
     const desktopUploadArea = desktopInput?.closest('.form-control');
     const mobileUploadArea = mobileInput?.closest('.form-control');
@@ -410,5 +444,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<?php include("../../includes/sweetalert-common.php"); ?>
 <?php include("../../includes/footer.php"); ?>
 

@@ -16,6 +16,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $status = sanitizeInput($_POST['txt_status'] ?? 'active');
     $id = intval($_POST['id'] ?? 0);
     
+    // Validation
+    $errors = [];
+    
+    // Required field validation
+    if (empty(trim($heading))) {
+        $errors[] = 'Heading is required';
+    }
+    
+    // For new sliders, images are required
+    if ($id == 0) {
+        if (empty($_FILES['txt_image_desktop']['name']) || $_FILES['txt_image_desktop']['error'] != UPLOAD_ERR_OK) {
+            $errors[] = 'Desktop image is required for new sliders';
+        }
+        if (empty($_FILES['txt_image_mobile']['name']) || $_FILES['txt_image_mobile']['error'] != UPLOAD_ERR_OK) {
+            $errors[] = 'Mobile image is required for new sliders';
+        }
+    }
+    
+    // If there are validation errors, redirect back with error message
+    if (!empty($errors)) {
+        $_SESSION['alert_type'] = 'error';
+        $_SESSION['alert_message'] = implode('. ', $errors);
+        header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+        exit;
+    }
+    
     $image_desktop = '';
     if (isset($_FILES['txt_image_desktop']) && $_FILES['txt_image_desktop']['error'] == UPLOAD_ERR_OK) {
         $uploadResult = uploadImage($_FILES['txt_image_desktop'], $root_path . '../assets/img/hero/', ['png', 'jpg', 'jpeg', 'webp'], [
@@ -97,13 +123,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['alert_type'] = 'success';
         $_SESSION['alert_message'] = $id > 0 ? 'Slider updated successfully!' : 'Slider created successfully!';
         header("Location: index.php");
+        exit;
     } else {
         $_SESSION['alert_type'] = 'error';
-        $_SESSION['alert_message'] = 'Error saving slider. Please try again.';
+        $_SESSION['alert_message'] = 'Database error: ' . mysqli_error($link);
         header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+        exit;
     }
     mysqli_stmt_close($stmt);
-    exit;
 }
 
 header("Location: index.php");

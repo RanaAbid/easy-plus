@@ -28,7 +28,7 @@ include("../../includes/header.php");
             </a>
         </div>
 
-        <form action="save.php" method="post" enctype="multipart/form-data" id="sliderForm">
+        <form action="save.php" method="post" enctype="multipart/form-data" id="sliderForm" novalidate>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group mb-4">
@@ -282,6 +282,68 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Form validation
+    const sliderForm = document.getElementById('sliderForm');
+    if (sliderForm) {
+        sliderForm.addEventListener('submit', function(e) {
+            let isValid = true;
+            let errorMessages = [];
+            
+            // Validate heading
+            const heading = document.getElementById('txt_heading');
+            if (!heading || !heading.value.trim()) {
+                isValid = false;
+                errorMessages.push('Heading is required');
+                if (heading) {
+                    heading.classList.add('is-invalid');
+                }
+            } else {
+                if (heading) heading.classList.remove('is-invalid');
+            }
+            
+            // Validate desktop image for new sliders
+            const desktopImage = document.getElementById('txt_image_desktop');
+            if (desktopImage && (!desktopImage.files || desktopImage.files.length === 0)) {
+                isValid = false;
+                errorMessages.push('Desktop image is required');
+                if (desktopImage.closest('.form-control')) {
+                    desktopImage.closest('.form-control').classList.add('border-danger');
+                }
+            } else {
+                if (desktopImage && desktopImage.closest('.form-control')) {
+                    desktopImage.closest('.form-control').classList.remove('border-danger');
+                }
+            }
+            
+            // Validate mobile image for new sliders
+            const mobileImage = document.getElementById('txt_image_mobile');
+            if (mobileImage && (!mobileImage.files || mobileImage.files.length === 0)) {
+                isValid = false;
+                errorMessages.push('Mobile image is required');
+                if (mobileImage.closest('.form-control')) {
+                    mobileImage.closest('.form-control').classList.add('border-danger');
+                }
+            } else {
+                if (mobileImage && mobileImage.closest('.form-control')) {
+                    mobileImage.closest('.form-control').classList.remove('border-danger');
+                }
+            }
+            
+            if (!isValid) {
+                e.preventDefault();
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Validation Error',
+                    html: errorMessages.join('<br>'),
+                    timer: 4000,
+                    toast: true,
+                    position: 'top-end'
+                });
+                return false;
+            }
+        });
+    }
+    
     // Drag and drop support
     const desktopUploadArea = desktopInput?.closest('.form-control');
     const mobileUploadArea = mobileInput?.closest('.form-control');
@@ -332,4 +394,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
+<?php include("../../includes/sweetalert-common.php"); ?>
 <?php include("../../includes/footer.php"); ?>

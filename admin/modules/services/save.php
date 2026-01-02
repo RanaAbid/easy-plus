@@ -75,13 +75,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $_SESSION['alert_type'] = 'success';
         $_SESSION['alert_message'] = $id > 0 ? 'Service updated successfully!' : 'Service created successfully!';
         header("Location: index.php");
+        exit;
     } else {
         $_SESSION['alert_type'] = 'error';
-        $_SESSION['alert_message'] = 'Error saving service. Please try again.';
+        $_SESSION['alert_message'] = 'Database error: ' . mysqli_error($link);
         header("Location: " . ($id > 0 ? "edit.php?id=$id" : "create.php"));
+        exit;
     }
     mysqli_stmt_close($stmt);
-    exit;
 }
 
 header("Location: index.php");

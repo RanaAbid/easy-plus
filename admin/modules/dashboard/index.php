@@ -330,5 +330,6 @@ include("../../includes/header.php");
     </div>
 </div>
 <?php
+include("../../includes/sweetalert-common.php");
 include("../../includes/footer.php");
 ?>

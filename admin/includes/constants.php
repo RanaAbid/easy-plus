@@ -1,7 +1,7 @@
 <?php
 $sys_env = "production"; //development, production
 $protocol = "https://";//   https:// or http://
-$web_dir = "";
+$web_dir = "admin/";
 $url = $_SERVER['SERVER_NAME'];
 $url_arr_2 = explode(".",$url);
 $app = $url_arr_2[0];
