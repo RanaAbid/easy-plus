@@ -1,22 +1,16 @@
 <?php include('../includes/header.php'); ?>
+<?php include('../includes/dbcode.php'); ?>
 <?php
-// Build services list by parsing services/index.php headings, fallback to defaults
+// Fetch services from database
 $services = [];
-$services_html = @file_get_contents(__DIR__ . '/../services/index.php');
-if ($services_html !== false) {
-    if (preg_match_all('/<h3[^>]*class=["\']service-title[^"\']*["\'][^>]*>\s*<a[^>]*>(.*?)<\/a>\s*<\/h3>/si', $services_html, $m)) {
-        $services = array_map('trim', $m[1]);
+$query = "SELECT title FROM services WHERE status = 'active' ORDER BY sort_order ASC, created_at DESC";
+$result = mysqli_query($link, $query);
+if ($result) {
+    while ($row = mysqli_fetch_assoc($result)) {
+        $services[] = $row['title'];
     }
 }
-if (empty($services)) {
-    $services = [
-        'Web Development',
-        'UI Design',
-        'CMS Development',
-        'Theme Development',
-        'Wordpress Development'
-    ];
-}
+
 ?>
 <div class="breadcumb-wrapper" data-bg-src="<?= $app_path ?>assets/img/breadcumb/breadcumb-bg.jpg">
     <div class="container z-index-common">
@@ -24,7 +18,7 @@ if (empty($services)) {
             <h1 class="breadcumb-title">Contact Us</h1>
             <div class="breadcumb-menu-wrap">
                 <ul class="breadcumb-menu">
-                    <li><a href="<?= $app_path ?>">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li>Contact Us</li>
                 </ul>
             </div>
@@ -38,27 +32,27 @@ if (empty($services)) {
                 <div class="row">
                     <div class="col-lg-6 mb-30">
                         <div class="contact-box">
-                            <h3 class="contact-box__title h4">Dubai Office Address</h3>
-                            <p class="contact-box__text">Completely recaptiualize 24/7 communities via standards compliant metrics whereas web-enabled content</p>
+                            <h3 class="contact-box__title h4"><?php echo $offices['dubai']['name']; ?> Address</h3>
+                            <p class="contact-box__text"><?php echo $offices['dubai']['description']; ?></p>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Phone Number & Email</h4>
-                                    <p class="contact-box__info"><a href="tel:+971525444984">+971525444984</a><a href="mailto:easyplus984@gmail.com">easyplus984@gmail.com</a></p>
+                                    <p class="contact-box__info"><a href="tel:<?php echo $offices['dubai']['phone']; ?>"><?php echo $offices['dubai']['phone']; ?></a><a href="mailto:<?php echo $offices['dubai']['email']; ?>"><?php echo $offices['dubai']['email']; ?></a></p>
                                 </div>
                             </div>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Our Office Address</h4>
-                                    <p class="contact-box__info">Office 17, 26B Street Al Mamoura Ras Al Khaimah United Arab Emirates</p>
+                                    <p class="contact-box__info"><?php echo $offices['dubai']['address']; ?></p>
                                 </div>
                             </div>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="far fa-clock"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Official Work Time</h4>
-                                    <p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday Closed
+                                    <p class="contact-box__info"><?php echo $offices['dubai']['working_hours']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -68,7 +62,7 @@ if (empty($services)) {
                         <div class="contact-box">
                             <h3 class="contact-box__title h4">Leave a Message</h3>
                             <p class="contact-box__text">We’re Ready To Help You</p>
-                            <form class="contact-box__form ajax-contact" action="https://html.vecurosoft.com/techbiz/demo/mail.php" method="POST">
+                            <form class="contact-box__form ajax-contact" action="mail.php" method="POST">
                                 <div class="row gx-20">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" id="name" placeholder="Your Name"> <i class="fal fa-user"></i>
@@ -87,6 +81,9 @@ if (empty($services)) {
                                     <div class="col-12 form-group">
                                         <textarea name="message" id="message" placeholder="Type Your Message"></textarea>
                                     </div>
+                                    <div class="col-12 form-group">
+                                        <div class="cf-turnstile" data-sitekey="<?= $turnstile_site_key ?>"></div>
+                                    </div>
                                     <div class="col-12">
                                         <button class="vs-btn">Submit Message<i class="far fa-arrow-right"></i></button>
                                     </div>
@@ -101,20 +98,20 @@ if (empty($services)) {
                 <div class="row">
                     <div class="col-lg-6 mb-30">
                         <div class="contact-box">
-                            <h3 class="contact-box__title h4">Australia Office Address</h3>
-                            <p class="contact-box__text">Completely recaptiualize 24/7 communities via standards compliant metrics whereas web-enabled content</p>
+                            <h3 class="contact-box__title h4"><?php echo $offices['australia']['name']; ?> Address</h3>
+                            <p class="contact-box__text"><?php echo $offices['australia']['description']; ?></p>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Phone Number & Email</h4>
-                                    <p class="contact-box__info"><a href="tel:+310259121563">+(310) 2591 21563</a><a href="mailto:info@example.com">info@example.com</a></p>
+                                    <p class="contact-box__info"><a href="tel:<?php echo $offices['australia']['phone']; ?>"><?php echo $offices['australia']['phone']; ?></a><a href="mailto:<?php echo $offices['australia']['email']; ?>"><?php echo $offices['australia']['email']; ?></a></p>
                                 </div>
                             </div>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Our Office Address</h4>
-                                    <p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563, Canberra
+                                    <p class="contact-box__info"><?php echo $offices['australia']['address']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -122,7 +119,7 @@ if (empty($services)) {
                                 <div class="contact-box__icon"><i class="far fa-clock"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Official Work Time</h4>
-                                    <p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday Closed
+                                    <p class="contact-box__info"><?php echo $offices['australia']['working_hours']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -132,7 +129,7 @@ if (empty($services)) {
                         <div class="contact-box">
                             <h3 class="contact-box__title h4">Leave a Message</h3>
                             <p class="contact-box__text">We’re Ready To Help You</p>
-                            <form class="contact-box__form ajax-contact2" action="https://html.vecurosoft.com/techbiz/demo/mail.php" method="POST">
+                            <form class="contact-box__form ajax-contact2" action="mail.php" method="POST">
                                 <div class="row gx-20">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" id="name2" placeholder="Your Name"> <i class="fal fa-user"></i>
@@ -151,6 +148,9 @@ if (empty($services)) {
                                     <div class="col-12 form-group">
                                         <textarea name="message" id="message2" placeholder="Type Your Message"></textarea>
                                     </div>
+                                    <div class="col-12 form-group">
+                                        <div class="cf-turnstile" data-sitekey="<?= $turnstile_site_key ?>"></div>
+                                    </div>
                                     <div class="col-12">
                                         <button class="vs-btn">Submit Message<i class="far fa-arrow-right"></i></button>
                                     </div>
@@ -165,20 +165,20 @@ if (empty($services)) {
                 <div class="row">
                     <div class="col-lg-6 mb-30">
                         <div class="contact-box">
-                            <h3 class="contact-box__title h4">United State Office Address</h3>
-                            <p class="contact-box__text">Completely recaptiualize 24/7 communities via standards compliant metrics whereas web-enabled content</p>
+                            <h3 class="contact-box__title h4"><?php echo $offices['usa']['name']; ?> Address</h3>
+                            <p class="contact-box__text"><?php echo $offices['usa']['description']; ?></p>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="fal fa-phone-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Phone Number & Email</h4>
-                                    <p class="contact-box__info"><a href="tel:+310259121563">+(310) 2591 21563</a><a href="mailto:info@example.com">info@example.com</a></p>
+                                    <p class="contact-box__info"><a href="tel:<?php echo $offices['usa']['phone']; ?>"><?php echo $offices['usa']['phone']; ?></a><a href="mailto:<?php echo $offices['usa']['email']; ?>"><?php echo $offices['usa']['email']; ?></a></p>
                                 </div>
                             </div>
                             <div class="contact-box__item">
                                 <div class="contact-box__icon"><i class="far fa-map-marker-alt"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Our Office Address</h4>
-                                    <p class="contact-box__info">258 Dancing Street, Miland Line, HUYI 21563, NewYork
+                                    <p class="contact-box__info"><?php echo $offices['usa']['address']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -186,7 +186,7 @@ if (empty($services)) {
                                 <div class="contact-box__icon"><i class="far fa-clock"></i></div>
                                 <div class="media-body">
                                     <h4 class="contact-box__label">Official Work Time</h4>
-                                    <p class="contact-box__info">7:00am - 6:00pm ( Mon - Fri ) Sat, Sun & Holiday Closed
+                                    <p class="contact-box__info"><?php echo $offices['usa']['working_hours']; ?>
                                     </p>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@ if (empty($services)) {
                         <div class="contact-box">
                             <h3 class="contact-box__title h4">Leave a Message</h3>
                             <p class="contact-box__text">We’re Ready To Help You</p>
-                            <form class="contact-box__form ajax-contact3" action="https://html.vecurosoft.com/techbiz/demo/mail.php" method="POST">
+                            <form class="contact-box__form ajax-contact3" action="mail.php" method="POST">
                                 <div class="row gx-20">
                                     <div class="col-md-6 form-group">
                                         <input type="text" name="name" id="name3" placeholder="Your Name"> <i class="fal fa-user"></i>
@@ -214,6 +214,9 @@ if (empty($services)) {
                                     </div>
                                     <div class="col-12 form-group">
                                         <textarea name="message" id="message3" placeholder="Type Your Message"></textarea>
+                                    </div>
+                                    <div class="col-12 form-group">
+                                        <div class="cf-turnstile" data-sitekey="<?= $turnstile_site_key ?>"></div>
                                     </div>
                                     <div class="col-12">
                                         <button class="vs-btn">Submit Message<i class="far fa-arrow-right"></i></button>

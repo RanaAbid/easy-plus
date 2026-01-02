@@ -6,7 +6,7 @@
                     <div class="footer-info">
                         <div class="footer-info_icon"><i class="fal fa-map-marker-alt"></i></div>
                         <div class="media-body"><span class="footer-info_label">Office Address</span>
-                            <div class="footer-info_link">Office 17, 26B Street Al Mamoura Ras Al Khaimah United Arab Emirates</div>
+                            <div class="footer-info_link"><?php echo $footer_contact['address']; ?></div>
                         </div>
                     </div>
                 </div>
@@ -14,7 +14,7 @@
                     <div class="footer-info">
                         <div class="footer-info_icon"><i class="fal fa-clock"></i></div>
                         <div class="media-body"><span class="footer-info_label">Working Hours</span>
-                            <div class="footer-info_link">Weekdays 8am - 22pm Weekend 10am - 12pm</div>
+                            <div class="footer-info_link"><?php echo $footer_contact['working_hours']; ?></div>
                         </div>
                     </div>
                 </div>
@@ -22,7 +22,7 @@
                     <div class="footer-info">
                         <div class="footer-info_icon"><i class="fal fa-phone-volume"></i></div>
                         <div class="media-body"><span class="footer-info_label">Contact Us</span>
-                            <div class="footer-info_link"><a href="mailto:easyplus984@gmail.com">easyplus984@gmail.com</a><br><a href="tel:+971525444984">+971525444984</a></div>
+                            <div class="footer-info_link"><a href="mailto:<?php echo $footer_contact['email']; ?>"><?php echo $footer_contact['email']; ?></a><br><a href="tel:<?php echo $footer_contact['phone']; ?>"><?php echo $footer_contact['phone']; ?></a></div>
                         </div>
                     </div>
                 </div>
@@ -96,6 +96,7 @@
 <script src="<?= $app_path ?>assets/js/layerslider.kreaturamedia.jquery.js" defer></script>
 <script src="<?= $app_path ?>assets/js/main.js" defer></script>
 <script src="<?= $app_path ?>assets/js/hero-observer.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 
 </html>
