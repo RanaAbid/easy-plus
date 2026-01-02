@@ -9,7 +9,7 @@ $app = $url_arr_2[0];
 if (strpos($app, 'localhost') !== false or strpos($app, '127.0.0.1') !== false) {
   $sys_env = "development"; //development, production
   $protocol = "http://";//   https:// or http://
-  $web_dir = "projects/easy-plus-u/";
+  $web_dir = "projects/easy-plus/";
 }
 $app_path = $protocol . $_SERVER['HTTP_HOST'] . "/".$web_dir;
 $root_path = $_SERVER['DOCUMENT_ROOT'] . "/" . $web_dir;
