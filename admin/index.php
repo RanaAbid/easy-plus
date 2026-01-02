@@ -54,9 +54,32 @@ color: #f0f0f0ff;
     .brand .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#4FD1C5);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
     h3{margin:0 0 8px 0}
     .desc{color:#4b5563;margin-bottom:18px}
-    .form-group{margin-bottom:14px}
-    .form-control{width:100%;padding:12px 14px;border-radius:8px;border:1px solid #e6e9ef;font-size:15px}
-    .btn{border:none;color:#fff;padding:12px 16px;border-radius:8px;width:100%;font-weight:600}
+    .form-group{margin-bottom:14px;position:relative}
+    .form-control{
+      width:100% !important;
+      padding:12px 14px !important;
+      padding-right:40px !important;
+      border-radius:8px !important;
+      border:1px solid #e6e9ef !important;
+      font-size:15px !important;
+      background-color:#f5f3ff !important;
+      color:#260944 !important;
+      transition:all 0.3s ease !important;
+      box-sizing:border-box !important;
+      height:auto !important;
+      line-height:1.5 !important;
+    }
+    .form-control:focus{
+      outline:none !important;
+      border-color:#8E2DE2 !important;
+      background-color:#fff !important;
+      box-shadow:0 0 0 3px rgba(142, 45, 226, 0.1) !important;
+    }
+    .form-control::placeholder{
+      color:#a9a9c8 !important;
+      opacity:1 !important;
+    }
+    .btn{border:none;color:#fff;padding:12px 16px;border-radius:8px;width:100%;font-weight:600;cursor:pointer}
     /* (password toggle removed) */
     .muted{font-size:13px;color:#6b7280;text-align:center;margin-top:12px}
     @media(max-width:480px){.shape{display:none}}
@@ -90,10 +113,12 @@ color: #f0f0f0ff;
 
     <form method="post" action="authenticate.php">
       <div class="form-group">
-        <input class="form-control" type="text" name="username" placeholder="Username" required autofocus>
+        <input class="form-control" type="text" name="username" placeholder="Username" value="admin" required autofocus>
+        <i class="fal fa-user" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#a9a9c8;pointer-events:none"></i>
       </div>
       <div class="form-group">
         <input class="form-control" type="password" name="password" placeholder="Password" required>
+        <i class="fal fa-lock" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);color:#a9a9c8;pointer-events:none"></i>
       </div>
       <div class="form-group">
         <button class="btn btn-custom" type="submit">Sign In</button>
