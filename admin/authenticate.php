@@ -1,7 +1,14 @@
 <?php
-session_start();
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include('includes/constants.php');
 include($root_path . "includes/dbcode.php");
+
+// Clear redirect flag
+unset($_SESSION['redirecting_to_login']);
 
 $error = '';
 $username = '';
@@ -50,11 +57,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 }
 
 // Redirect back to login with error
-$redirect_url = $app_path . "index.php";
+$redirect_url = "index.php";
+if (isset($app_path) && !empty($app_path)) {
+    $redirect_url = rtrim($app_path, '/') . '/index.php';
+}
+
 if ($error) {
     $_SESSION['alert_type'] = 'error';
     $_SESSION['alert_message'] = $error;
 }
-header("Location: " . $redirect_url);
-exit;
+
+// Prevent redirect loops
+if (!isset($_SESSION['redirecting_to_login'])) {
+    header("Location: " . $redirect_url);
+    exit;
+} else {
+    // If we're in a loop, clear everything and show error
+    session_destroy();
+    die("Authentication error. Please clear your browser cookies and try again.");
+}
 

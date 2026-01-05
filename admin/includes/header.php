@@ -1,12 +1,17 @@
 <?php
+// Start output buffering first
 ob_start();
-session_start();
+
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 include("constants.php");
 include("auth.php");
 include($root_path . "includes/dbcode.php");
 
-// Check if user is logged in
+// Check if user is logged in (auth.php will handle login page exceptions)
 checkAdminLogin();
 
 $today         = date('m/d/Y h:i:s A', time());

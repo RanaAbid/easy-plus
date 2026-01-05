@@ -237,11 +237,18 @@ function deleteImage($filePath) {
     return false;
 }
 
-// Sanitize input
+// Sanitize input for database storage (removes slashes, trims, but doesn't HTML encode)
 function sanitizeInput($data) {
+    if (is_array($data)) {
+        return array_map('sanitizeInput', $data);
+    }
     $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
+    // Remove slashes if magic quotes are on (though they shouldn't be in modern PHP)
+    if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc()) {
+        $data = stripslashes($data);
+    }
+    // Don't use htmlspecialchars here - we'll escape on output
+    // Prepared statements will handle SQL injection protection
     return $data;
 }
 
@@ -250,5 +257,52 @@ function getImageUrl($app_path, $imagePath) {
     // Remove /admin/ from path to get correct URL
     $baseUrl = str_replace('/admin/', '/', $app_path);
     return $baseUrl . $imagePath;
+}
+
+// Generate slug from text
+function generateSlug($text) {
+    // Convert to lowercase
+    $text = strtolower(trim($text));
+    // Replace spaces and special characters with hyphens
+    $text = preg_replace('/[^a-z0-9]+/', '-', $text);
+    // Remove leading/trailing hyphens
+    $text = trim($text, '-');
+    return $text;
+}
+
+// Generate unique slug for services
+function generateUniqueSlug($link, $title, $excludeId = 0) {
+    $baseSlug = generateSlug($title);
+    $slug = $baseSlug;
+    $counter = 1;
+    
+    // Ensure uniqueness
+    while (true) {
+        $query = "SELECT id FROM services WHERE slug = ?";
+        $params = [$slug];
+        $types = "s";
+        
+        if ($excludeId > 0) {
+            $query .= " AND id != ?";
+            $params[] = $excludeId;
+            $types .= "i";
+        }
+        
+        $stmt = mysqli_prepare($link, $query);
+        mysqli_stmt_bind_param($stmt, $types, ...$params);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        
+        if (mysqli_num_rows($result) == 0) {
+            mysqli_stmt_close($stmt);
+            break;
+        }
+        
+        mysqli_stmt_close($stmt);
+        $slug = $baseSlug . '-' . $counter;
+        $counter++;
+    }
+    
+    return $slug;
 }
 

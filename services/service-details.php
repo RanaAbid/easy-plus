@@ -1,12 +1,52 @@
- <?php include('../includes/header.php'); ?>
+ <?php 
+ include('../includes/header.php');
+ include('../includes/dbcode.php');
+ include('../includes/functions.php');
+ 
+ // Get service slug from URL (support both slug and id for backward compatibility)
+ $serviceSlug = isset($_GET['slug']) ? sanitizeInput($_GET['slug']) : '';
+ $serviceId = isset($_GET['id']) ? intval($_GET['id']) : 0;
+ $service = null;
+ 
+ // Check if slug column exists
+ $slugColumnExists = false;
+ $checkSlugQuery = "SHOW COLUMNS FROM services LIKE 'slug'";
+ $checkResult = mysqli_query($link, $checkSlugQuery);
+ if ($checkResult && mysqli_num_rows($checkResult) > 0) {
+     $slugColumnExists = true;
+ }
+ 
+ if (!empty($serviceSlug) && $slugColumnExists && function_exists('getServiceBySlug')) {
+     $service = getServiceBySlug($link, $serviceSlug);
+ } elseif ($serviceId > 0) {
+     // Backward compatibility: if ID is provided, get by ID
+     $service = getServiceById($link, $serviceId);
+     // Only redirect to slug if slug column exists and service has slug
+     if ($service && $slugColumnExists && !empty($service['slug'])) {
+         // Redirect to slug-based URL
+         header("Location: " . $app_path . "services/" . $service['slug']);
+         exit;
+     }
+ }
+ 
+ // If no service found, redirect to services page
+ if (!$service) {
+     header("Location: " . $app_path . "services/");
+     exit;
+ }
+ 
+ // Get all services for sidebar
+ $allServices = getServices($link, 'active');
+ ?>
  <div class="breadcumb-wrapper" data-bg-src="<?= $app_path ?>assets/img/breadcumb/breadcumb-bg.jpg">
      <div class="container z-index-common">
          <div class="breadcumb-content">
-             <h1 class="breadcumb-title text-capitalize">Accounting & Bookkeeping</h1>
+             <h1 class="breadcumb-title text-capitalize"><?= htmlspecialchars($service['title']) ?></h1>
              <div class="breadcumb-menu-wrap">
                  <ul class="breadcumb-menu">
                      <li><a href="<?= $app_path ?>">Home</a></li>
-                     <li class="text-capitalize">Accounting & bookkeeping</li>
+                     <li><a href="<?= $app_path ?>services/">Services</a></li>
+                     <li class="text-capitalize"><?= htmlspecialchars($service['title']) ?></li>
                  </ul>
              </div>
          </div>
@@ -15,13 +55,13 @@
  <section class="space-top space-extra-bottom">
      <div class="container">
          <div class="row flex-row-reverse">
-             <div class="col-lg-8">
-                 <h2 class="h4">Reliable Accounting & Bookkeeping Solutions</h2>
-                 <p>Our Accounting & Bookkeeping services are designed to give business owners complete financial clarity and control. We go beyond basic data entry by maintaining structured, compliant and decision-ready financial records that support sustainable business growth.<br>
-
-                     We ensure your accounts are always up to date, properly classified and aligned with regulatory requirements. With accurate financial reporting and organised records, you can confidently track performance, plan ahead and respond quickly to business challenges.<br>
-
-                     Whether you are a startup, SME or established company, our accounting framework helps reduce financial risk, improve cash flow management and simplify tax and audit processes.</p>
+            <div class="col-lg-8">
+                <h2 class="h4"><?= htmlspecialchars($service['title']) ?></h2>
+                <?php if ($service['description']): ?>
+                <div class="service-description">
+                    <?= nl2br(htmlspecialchars($service['description'])) ?>
+                </div>
+                <?php endif; ?>
                  <div class="row gx-0 mb-4 pb-2 pt-3 wow fadeInUp" data-wow-delay="0.2s">
                      <div class="col-xl-6"><img src="<?= $app_path ?>assets/img/service/sr-d-1-2.jpg" alt="project image" class="w-100"></div>
                      <div class="col-xl-6">
@@ -57,19 +97,26 @@
              </div>
              <div class="col-lg-4">
                  <aside class="service-sidebar">
-                     <div class="widget widget_categories">
-                         <h3 class="widget_title">All Services</h3>
-                         <ul>
-                             <li><a href="<?= $app_path ?>services/service-details.php">ACCOUNTING & BOOKKEEPING</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">VAT & CORPORATE TAX</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">BUSINESS SETUP & LICENSING</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">VISA & IMMIGRATION</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">TYPING & DOCUMENT</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">MUNICIPALITY & LABOUR</a></li>
-                             <li><a href="<?= $app_path ?>services/service-details.php">PRO & GOVERNMENT</a></li>
-
-                         </ul>
-                     </div>
+                    <div class="widget widget_categories">
+                        <h3 class="widget_title">All Services</h3>
+                        <ul>
+                            <?php if (!empty($allServices)): ?>
+                                <?php foreach ($allServices as $sidebarService): 
+                                    // Use slug if available and slug column exists, otherwise fallback to ID
+                                    if ($slugColumnExists && !empty($sidebarService['slug'])) {
+                                        $sidebarUrl = $sidebarService['link_url'] ?: ($app_path . 'services/' . $sidebarService['slug']);
+                                    } else {
+                                        $sidebarUrl = $sidebarService['link_url'] ?: ($app_path . 'services/service-details.php?id=' . $sidebarService['id']);
+                                    }
+                                    $isActive = ($sidebarService['id'] == $service['id']) ? 'class="active"' : '';
+                                ?>
+                                <li><a href="<?= htmlspecialchars($sidebarUrl) ?>" <?= $isActive ?>><?= htmlspecialchars(strtoupper($sidebarService['title'])) ?></a></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li><a href="<?= $app_path ?>services/">View All Services</a></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
                      <div class="widget">
                          <h3 class="widget_title">Working Hours</h3>
                          <div class="widget-workhours">

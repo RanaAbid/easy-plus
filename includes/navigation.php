@@ -21,9 +21,15 @@
                 <div class="col-lg-auto">
                     <div class="header-social style-white">
                         <span class="social-title">Follow Us On: </span>
-                        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <?php if (!empty($social_media['facebook'])): ?>
+                        <a href="<?= htmlspecialchars($social_media['facebook']) ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($social_media['instagram'])): ?>
+                        <a href="<?= htmlspecialchars($social_media['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <?php endif; ?>
+                        <?php if (!empty($social_media['linkedin'])): ?>
+                        <a href="<?= htmlspecialchars($social_media['linkedin']) ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -38,13 +44,17 @@
                 <div class="col-auto header-info">
                     <div class="header-info_icon"><i class="fas fa-phone-alt"></i></div>
                     <div class="media-body"><span class="header-info_label">Call Anytime 24/7</span>
-                        <div class="header-info_link"><a href="<?= $app_path ?>tel:+97175011955">+97175011955</a></div>
+                        <?php 
+                        $headerPhone = $footer_contact['phone'];
+                        $headerPhoneClean = str_replace([' ', '(', ')', '-'], '', $headerPhone);
+                        ?>
+                        <div class="header-info_link"><a href="tel:<?= htmlspecialchars($headerPhoneClean) ?>"><?= htmlspecialchars($headerPhone) ?></a></div>
                     </div>
                 </div>
                 <div class="col-auto header-info d-none d-lg-flex">
                     <div class="header-info_icon"><i class="fas fa-envelope"></i></div>
                     <div class="media-body"><span class="header-info_label">Mail Us For Support</span>
-                        <div class="header-info_link"><a href="<?= $app_path ?>mailto:easyplus984@gmail.com">easyplus984@gmail.com</a></div>
+                        <div class="header-info_link"><a href="mailto:<?= htmlspecialchars($footer_contact['email']) ?>"><?= htmlspecialchars($footer_contact['email']) ?></a></div>
                     </div>
                 </div>
                 <div class="col-auto header-info d-none d-xl-flex">

@@ -1,0 +1,8 @@
+# .htaccess (inside services folder)
+RewriteEngine On
+RewriteBase /projects/easy-plus/services/
+
+# Rewrite /services/slug to /services/service-details.php?slug=slug
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^([a-zA-Z0-9_-]+)/?$ service-details.php?slug=$1 [L,QSA]

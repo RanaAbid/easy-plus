@@ -38,9 +38,15 @@
                         <div class="vs-widget-about">
                             <p class="footer-text">Licensed UAE accounting and business support firm providing reliable bookkeeping, tax, visa, and government documentation services with accuracy and professionalism.</p>
                             <div class="footer-social">
-                                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                            <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <?php if (!empty($social_media['facebook'])): ?>
+                                <a href="<?= htmlspecialchars($social_media['facebook']) ?>" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <?php endif; ?>
+                                <?php if (!empty($social_media['instagram'])): ?>
+                                <a href="<?= htmlspecialchars($social_media['instagram']) ?>" target="_blank"><i class="fab fa-instagram"></i></a>
+                                <?php endif; ?>
+                                <?php if (!empty($social_media['linkedin'])): ?>
+                                <a href="<?= htmlspecialchars($social_media['linkedin']) ?>" target="_blank"><i class="fab fa-linkedin"></i></a>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -50,10 +56,10 @@
                         <h3 class="widget_title">Links</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">About Us</a></li>
-                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="<?= $app_path ?>">Home</a></li>
+                                <li><a href="<?= $app_path ?>services/">Services</a></li>
+                                <li><a href="<?= $app_path ?>about-us/">About Us</a></li>
+                                <li><a href="<?= $app_path ?>contact-us/">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -63,11 +69,50 @@
                         <h3 class="widget_title">Services</h3>
                         <div class="menu-all-pages-container">
                             <ul class="menu">
-                                <li><a href="#">Service1</a></li>
-                                <li><a href="#">Service2</a></li>
-                                <li><a href="#">Service3</a></li>
-                                <li><a href="#">Service4</a></li>
-                                <li><a href="#">Service5</a></li>
+                                <?php 
+                                // Ensure database connection and functions are available
+                                if (!isset($link)) {
+                                    if (file_exists(__DIR__ . '/dbcode.php')) {
+                                        include(__DIR__ . '/dbcode.php');
+                                    }
+                                }
+                                if (!function_exists('getServices')) {
+                                    if (file_exists(__DIR__ . '/functions.php')) {
+                                        include(__DIR__ . '/functions.php');
+                                    }
+                                }
+                                
+                                // Get services for footer (max 5)
+                                $footerServices = [];
+                                if (function_exists('getServices') && isset($link) && $link) {
+                                    try {
+                                        $footerServices = getServices($link, 'active', 5);
+                                    } catch (Exception $e) {
+                                        // Silently fail and show fallback
+                                        $footerServices = [];
+                                    } catch (Error $e) {
+                                        // Handle fatal errors
+                                        $footerServices = [];
+                                    }
+                                }
+                                
+                                if (!empty($footerServices)):
+                                    foreach ($footerServices as $footerService):
+                                        // Always use slug if available
+                                        if (!empty($footerService['slug'])) {
+                                            $serviceUrl = $footerService['link_url'] ?: ($app_path . 'services/' . $footerService['slug']);
+                                        } else {
+                                            // Fallback to ID only if slug doesn't exist
+                                            $serviceUrl = $footerService['link_url'] ?: ($app_path . 'service-details.php?id=' . $footerService['id']);
+                                        }
+                                ?>
+                                <li><a href="<?= htmlspecialchars($serviceUrl) ?>"><?= htmlspecialchars($footerService['title']) ?></a></li>
+                                <?php 
+                                    endforeach;
+                                else:
+                                ?>
+                                <li><a href="<?= $app_path ?>services/">View All Services</a></li>
+                                <?php endif; ?>
                             </ul>
                         </div>
                     </div>

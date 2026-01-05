@@ -1,4 +1,11 @@
- <?php include('../includes/header.php'); ?>
+ <?php 
+include('../includes/header.php');
+include('../includes/dbcode.php');
+include('../includes/functions.php');
+
+// Load services from database
+$services = getServices($link, 'active');
+?>
 <style>
     .add-read-more.show-less-content .second-section,
     .add-read-more.show-less-content .read-less {
@@ -97,104 +104,114 @@
  <section class="space-top space-extra-bottom">
      <div class="container wow fadeInUp" data-wow-delay="0.2s">
          <div class="row justify-content-center">
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-1.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">ACCOUNTING & BOOKKEEPING</a></h3>
-                     <p class="service-text add-read-more show-less-content">Organised accounting services that keep your books accurate, audit-ready and updated. We help you track finances, manage cash flow and make confident business decisions.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
+             <?php if (!empty($services)): ?>
+                 <?php foreach ($services as $index => $service): 
+                    // Get short description (around 70 characters, similar to title length)
+                    $fullDescription = $service['description'];
+                    $shortDescription = '';
+                    if ($fullDescription) {
+                        if (strlen($fullDescription) > 70) {
+                            // Get first sentence if it's reasonable, otherwise truncate at 70 chars
+                            $sentences = preg_split('/(?<=[.!?])\s+/', $fullDescription, 2);
+                            if (!empty($sentences[0]) && strlen($sentences[0]) <= 100) {
+                                $shortDescription = $sentences[0];
+                            } else {
+                                // Truncate at 70 chars, find last space to avoid cutting words
+                                $truncated = substr($fullDescription, 0, 70);
+                                $lastSpace = strrpos($truncated, ' ');
+                                $shortDescription = substr($fullDescription, 0, $lastSpace ?: 70) . '...';
+                            }
+                        } else {
+                            $shortDescription = $fullDescription;
+                        }
+                    }
+                     
+                     // Default background image if not set
+                     $bgImage = $service['background_image'] ? '../assets/img/bg/' . htmlspecialchars($service['background_image']) : '../assets/img/bg/sr-box-bg-1.jpg';
+                     
+                     // Default icon if not set - use existing icons as fallback
+                     $iconIndex = ($index % 6) + 1;
+                     $iconPath = $service['icon'] ? $app_path . 'assets/img/icon/' . htmlspecialchars($service['icon']) : $app_path . 'assets/img/icon/sr-icon-1-' . $iconIndex . '.png';
+                     
+                     // Always use slug if available
+                     if (!empty($service['slug'])) {
+                         $linkUrl = $service['link_url'] ? htmlspecialchars($service['link_url']) : '../services/' . $service['slug'];
+                     } else {
+                         // Fallback to ID only if slug doesn't exist
+                         $linkUrl = $service['link_url'] ? htmlspecialchars($service['link_url']) : '../service-details.php?id=' . $service['id'];
+                     }
+                 ?>
+                 <div class="col-md-6 col-lg-4">
+                     <div class="service-style1 layout2">
+                         <div class="service-bg" data-bg-src="<?= $bgImage ?>"></div>
+                         <div class="service-icon"><img src="<?= $iconPath ?>" alt="<?= htmlspecialchars($service['title']) ?>" loading="lazy"></div>
+                        <h3 class="service-title h5"><a href="<?= $linkUrl ?>"><?= htmlspecialchars($service['title']) ?></a></h3>
+                        <p class="service-text"><?= htmlspecialchars($shortDescription ?: $fullDescription) ?></p>
+                        <a href="<?= $linkUrl ?>" class="vs-btn style3"><?= htmlspecialchars($service['link_text'] ?: 'Read More') ?><i class="far fa-long-arrow-right"></i></a>
+                     </div>
                  </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-2.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">VAT & CORPORATE TAX</a></h3>
-                     <p class="service-text add-read-more show-less-content">Complete VAT and Corporate Tax services including registration, filing, compliance review and audit preparation ensuring accurate submissions, reduced penalties and full alignment with UAE regulations.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
+                 <?php endforeach; ?>
+             <?php else: ?>
+                 <!-- Fallback if no services -->
+                 <div class="col-12 text-center">
+                     <p>No services available at the moment. Please check back later.</p>
                  </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-3.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">BUSINESS SETUP & LICENSING</a></h3>
-                     <p class="service-text add-read-more show-less-content">Fast and hassle-free business setup services, including licensing, renewals and government approvals ensuring your company stays compliant and legally active with RAK DED.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
-                 </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-4.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">VISA & IMMIGRATION</a></h3>
-                     <p class="service-text add-read-more show-less-content">Complete visa and residency support, including applications, renewals, status changes, Emirates ID, medical tests, and immigration assistance ensuring accurate documents and timely processing.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
-                 </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-5.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">TYPING & DOCUMENT </a></h3>
-                     <p class="service-text add-read-more show-less-content">Accurate typing and preparation of government and business documents, including visa forms, labour applications, NOCs, agreements, attestation support, translations, and printing services.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
-                 </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-6.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">MUNICIPALITY & LABOUR</a></h3>
-                     <p class="service-text add-read-more show-less-content">Comprehensive support for labour approvals, work permits, establishment setup, and municipality documentation, ensuring compliance and smooth processing of all local requirements.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
-                 </div>
-             </div>
-             <div class="col-md-6 col-lg-4">
-                 <div class="service-style1 layout2">
-                     <div class="service-bg" data-bg-src="../assets/img/bg/sr-box-bg-1.jpg"></div>
-                     <div class="service-icon"><img src="<?= $app_path ?>assets/img/icon/sr-icon-1-6.png" alt="Features"></div>
-                     <h3 class="service-title h5"><a href="service-details.php">PRO & GOVERNMENT</a></h3>
-                     <p class="service-text add-read-more show-less-content">Fast and reliable government liaison support, handling document clearances, approvals, NOCs, coordination with authorities, payments, and appointment scheduling to ensure smooth and timely processing.</p><a href="service-details.php" class="vs-btn style3">Read More<i
-                             class="far fa-long-arrow-right"></i></a>
-                 </div>
-             </div>
+             <?php endif; ?>
          </div>
      </div>
  </section>
  <?php include('../includes/footer.php'); ?>
  <script>
-     $(document).ready(function() {
-         function AddReadMore() {
-             //This limit you can set after how much characters you want to show Read More.
-             var carLmt = 100;
-             // Text to show when text is collapsed
-             var readMoreTxt = " ...";
-             // Text to show when text is expanded
-             var readLessTxt = " read less";
+    $(document).ready(function() {
+        function AddReadMore() {
+            // Character limit for truncation (increased for better consistency)
+            var charLimit = 150;
+            // Text to show when text is collapsed
+            var readMoreTxt = " ...";
+            // Text to show when text is expanded
+            var readLessTxt = " read less";
 
+            // Traverse all selectors with this class and manipulate HTML part to show Read More
+            $(".add-read-more").each(function() {
+                // Skip if already processed
+                if ($(this).find(".first-section").length || $(this).find(".second-section").length)
+                    return;
 
-             //Traverse all selectors with this class and manupulate HTML part to show Read More
-             $(".add-read-more").each(function() {
-                 if ($(this).find(".first-section").length)
-                     return;
+                var $element = $(this);
+                var allText = $element.text().trim();
+                
+                // Only truncate if text is longer than the limit
+                if (allText.length > charLimit) {
+                    // Find the last space before the character limit to avoid cutting words
+                    var truncatedText = allText.substring(0, charLimit);
+                    var lastSpaceIndex = truncatedText.lastIndexOf(' ');
+                    
+                    // If we found a space, use it; otherwise use the character limit
+                    var cutPoint = (lastSpaceIndex > charLimit * 0.7) ? lastSpaceIndex : charLimit;
+                    
+                    var firstPart = allText.substring(0, cutPoint).trim();
+                    var secondPart = allText.substring(cutPoint).trim();
+                    
+                    // Build the HTML with proper structure
+                    var htmlContent = firstPart + 
+                        "<span class='second-section'>" + secondPart + "</span>" +
+                        "<span class='read-more' title='Click to Show More'>" + readMoreTxt + "</span>" +
+                        "<span class='read-less' title='Click to Show Less'>" + readLessTxt + "</span>";
+                    
+                    $element.html(htmlContent);
+                    // Ensure it starts in collapsed state
+                    $element.addClass('show-less-content');
+                }
+            });
 
-                 var allstr = $(this).text();
-                 if (allstr.length > carLmt) {
-                     var firstSet = allstr.substring(0, carLmt);
-                     var secdHalf = allstr.substring(carLmt, allstr.length);
-                     var strtoadd = firstSet + "<span class='second-section'>" + secdHalf + "</span><span class='read-more'  title='Click to Show More'>" + readMoreTxt + "</span><span class='read-less' title='Click to Show Less'>" + readLessTxt + "</span>";
-                     $(this).html(strtoadd);
-                 }
-             });
+            // Read More and Read Less Click Event binding
+            $(document).on("click", ".read-more,.read-less", function(e) {
+                e.preventDefault();
+                var $container = $(this).closest(".add-read-more");
+                $container.toggleClass("show-less-content show-more-content");
+            });
+        }
 
-             //Read More and Read Less Click Event binding
-             $(document).on("click", ".read-more,.read-less", function() {
-                 $(this).closest(".add-read-more").toggleClass("show-less-content show-more-content");
-             });
-         }
-
-         AddReadMore();
-     });
+        AddReadMore();
+    });
  </script>

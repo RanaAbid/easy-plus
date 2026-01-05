@@ -1,11 +1,19 @@
 <?php
-session_start();
+// Start session if not already started
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 include('includes/constants.php');
 include('includes/auth.php');
 
+// Clear redirect flag when on login page
+unset($_SESSION['redirecting_to_login']);
+
 // If already logged in, redirect to dashboard
 if (isAdminLoggedIn()) {
-    header("Location: " . $app_path . "modules/dashboard/");
+    $dashboard_url = $app_path . "modules/dashboard/";
+    header("Location: " . $dashboard_url);
     exit;
 }
 

@@ -4,9 +4,15 @@ include($root_path . "includes/dbcode.php");
 include("../../includes/functions.php");
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $heading = sanitizeInput($_POST['txt_heading'] ?? '');
-    $tagline = sanitizeInput($_POST['txt_tagline'] ?? '');
-    $description = sanitizeInput($_POST['txt_description'] ?? '');
+    // Get raw input first for validation
+    $heading_raw = $_POST['txt_heading'] ?? '';
+    $tagline_raw = $_POST['txt_tagline'] ?? '';
+    $description_raw = $_POST['txt_description'] ?? '';
+    
+    // Sanitize inputs (trim, but don't HTML encode - we'll do that on output)
+    $heading = sanitizeInput($heading_raw);
+    $tagline = sanitizeInput($tagline_raw);
+    $description = sanitizeInput($description_raw);
     $alt_text = sanitizeInput($_POST['txt_alt'] ?? '');
     $btn_title = sanitizeInput($_POST['txt_btn_title'] ?? '');
     $btn_url = sanitizeInput($_POST['txt_btn_url'] ?? '');
@@ -19,9 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validation
     $errors = [];
     
-    // Required field validation
-    if (empty(trim($heading))) {
+    // Required field validation - check raw input to catch whitespace-only entries
+    if (empty(trim($heading_raw))) {
         $errors[] = 'Heading is required';
+    }
+    
+    // Additional validation - ensure heading is not too long
+    if (strlen(trim($heading_raw)) > 500) {
+        $errors[] = 'Heading must be less than 500 characters';
     }
     
     // For new sliders, images are required

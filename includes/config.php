@@ -54,4 +54,11 @@ $footer_contact = [
     'email' => $offices['dubai']['email'],
     'phone' => $offices['dubai']['phone']
 ];
+
+// Social Media Links
+$social_media = [
+    'facebook' => 'https://www.facebook.com/',
+    'instagram' => 'https://www.instagram.com/',
+    'linkedin' => 'https://www.linkedin.com/'
+];
 ?>

@@ -6,7 +6,7 @@ include('includes/functions.php');
 // Load all data
 $sliders = getSliders($link);
 $features = getFeatures($link);
-$services = getServices($link);
+$services = getServices($link, 'active', 6);
 $about = getAboutSection($link);
 $processItems = getProcessItems($link);
 $skills = getSkills($link);
@@ -36,11 +36,13 @@ $cta = getCTASection($link);
                 </p>
                 <?php endif; ?>
                 
-                <h1 style="top:305px; left:345px; font-weight:700; font-size:60px;" 
+                <?php if (!empty($slider['heading'])): ?>
+                <h1 style="top:305px; left:345px; font-weight:700; font-size:60px; color:#ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" 
                     class="ls-l ls-hide-tablet ls-hide-phone ls-text-layer hero-layer-base hero-title" 
                     data-ls="offsetxin:-200; durationin:1500; delayin:200; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint;">
-                    <?= htmlspecialchars($slider['heading']) ?>
+                    <?= htmlspecialchars(str_replace(["\r\n", "\r", "\n"], ' ', trim($slider['heading']))) ?>
                 </h1>
+                <?php endif; ?>
                 
                 <?php if ($slider['description']): ?>
                 <div style="top:405px; left:350px; width:695px;" 
@@ -75,11 +77,13 @@ $cta = getCTASection($link);
                 </p>
                 <?php endif; ?>
                 
-                <h1 style="top:280px; left:80px; font-weight:700; font-size:80px; color:#ffffff; font-family:Exo;" 
+                <?php if (!empty($slider['heading'])): ?>
+                <h1 style="top:280px; left:80px; font-weight:700; font-size:80px; color:#ffffff; font-family:Exo; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" 
                     class="ls-l ls-hide-desktop ls-hide-phone ls-text-layer" 
                     data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                    <?= htmlspecialchars($slider['heading']) ?>
+                    <?= htmlspecialchars(str_replace(["\r\n", "\r", "\n"], ' ', trim($slider['heading']))) ?>
                 </h1>
+                <?php endif; ?>
                 
                 <div style="top:540px; left:80px; font-size:24px;" 
                      class="ls-l ls-hide-desktop ls-hide-phone ls-html-layer" 
@@ -94,11 +98,13 @@ $cta = getCTASection($link);
                 </div>
                 
                 <!-- Mobile View -->
-                <h1 style="top:120px; left:50%; text-align:center; font-weight:700; font-size:130px; color:#ffffff; font-family:Exo; width:10000px;" 
+                <?php if (!empty($slider['heading'])): ?>
+                <h1 style="top:120px; left:50%; text-align:center; font-weight:700; font-size:130px; color:#ffffff; font-family:Exo; width:10000px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);" 
                     class="ls-l ls-hide-desktop ls-hide-tablet ls-text-layer" 
                     data-ls="offsetxin:-200; durationin:1500; easingin:easeOutQuint; offsetxout:-100; durationout:1500; easingout:easeOutQuint; position:relative;">
-                    <?= htmlspecialchars($slider['heading']) ?>
+                    <?= htmlspecialchars(str_replace(["\r\n", "\r", "\n"], ' ', trim($slider['heading']))) ?>
                 </h1>
+                <?php endif; ?>
                 
                 <div style="top:520px; left:50%; text-align:center; font-size:24px; width:1000px;" 
                      class="ls-l ls-hide-desktop ls-hide-tablet ls-html-layer" 
@@ -222,6 +228,31 @@ $cta = getCTASection($link);
     <?php endif; ?>
 </div>
 
+<style>
+    .add-read-more.show-less-content .second-section,
+    .add-read-more.show-less-content .read-less {
+        display: none;
+    }
+
+    .add-read-more.show-more-content .read-more {
+        display: none;
+    }
+
+    .add-read-more .read-more,
+    .add-read-more .read-less {
+        font-weight: bold;
+        margin-left: 2px;
+        color: #4d02d9;
+        cursor: pointer;
+    }
+
+    .add-read-more {
+        max-width: 600px;
+        width: 100%;
+        margin: 0 auto;
+    }
+</style>
+
 <section class="space-top space-extra-bottom" data-bg-src="<?= $app_path ?>assets/img/bg/sr-bg-1-1.png">
     <div class="container">
         <div class="row justify-content-center text-center">
@@ -251,7 +282,7 @@ $cta = getCTASection($link);
                             <a href="<?= htmlspecialchars($service['link_url'] ?: '#') ?>"><?= htmlspecialchars($service['title']) ?></a>
                         </h3>
                         <?php if ($service['description']): ?>
-                        <p class="service-text"><?= htmlspecialchars($service['description']) ?></p>
+                        <p class="service-text add-read-more show-less-content"><?= htmlspecialchars($service['description']) ?></p>
                         <?php endif; ?>
                         <?php if ($service['link_url']): ?>
                         <a href="<?= htmlspecialchars($service['link_url']) ?>" class="vs-btn style3">
@@ -404,6 +435,61 @@ $cta = getCTASection($link);
     </div>
 </section>
 <?php endif; ?>
+
+<script>
+    $(document).ready(function() {
+        function AddReadMore() {
+            // Character limit for truncation (increased for better consistency)
+            var charLimit = 150;
+            // Text to show when text is collapsed
+            var readMoreTxt = " ...";
+            // Text to show when text is expanded
+            var readLessTxt = " read less";
+
+            // Traverse all selectors with this class and manipulate HTML part to show Read More
+            $(".add-read-more").each(function() {
+                // Skip if already processed
+                if ($(this).find(".first-section").length || $(this).find(".second-section").length)
+                    return;
+
+                var $element = $(this);
+                var allText = $element.text().trim();
+                
+                // Only truncate if text is longer than the limit
+                if (allText.length > charLimit) {
+                    // Find the last space before the character limit to avoid cutting words
+                    var truncatedText = allText.substring(0, charLimit);
+                    var lastSpaceIndex = truncatedText.lastIndexOf(' ');
+                    
+                    // If we found a space, use it; otherwise use the character limit
+                    var cutPoint = (lastSpaceIndex > charLimit * 0.7) ? lastSpaceIndex : charLimit;
+                    
+                    var firstPart = allText.substring(0, cutPoint).trim();
+                    var secondPart = allText.substring(cutPoint).trim();
+                    
+                    // Build the HTML with proper structure
+                    var htmlContent = firstPart + 
+                        "<span class='second-section'>" + secondPart + "</span>" +
+                        "<span class='read-more' title='Click to Show More'>" + readMoreTxt + "</span>" +
+                        "<span class='read-less' title='Click to Show Less'>" + readLessTxt + "</span>";
+                    
+                    $element.html(htmlContent);
+                    // Ensure it starts in collapsed state
+                    $element.addClass('show-less-content');
+                }
+            });
+
+            // Read More and Read Less Click Event binding
+            $(document).on("click", ".read-more,.read-less", function(e) {
+                e.preventDefault();
+                var $container = $(this).closest(".add-read-more");
+                $container.toggleClass("show-less-content show-more-content");
+            });
+        }
+
+        AddReadMore();
+    });
+</script>
 
 <?php include('includes/footer.php'); ?>
 
