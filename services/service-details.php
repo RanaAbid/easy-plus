@@ -59,7 +59,7 @@
                 <h2 class="h4"><?= htmlspecialchars($service['title']) ?></h2>
                 <?php if ($service['description']): ?>
                 <div class="service-description">
-                    <?= nl2br(htmlspecialchars($service['description'])) ?>
+                    <?= $service['description'] ?>
                 </div>
                 <?php endif; ?>
                  <div class="row gx-0 mb-4 pb-2 pt-3 wow fadeInUp" data-wow-delay="0.2s">
