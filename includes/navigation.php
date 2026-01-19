@@ -39,7 +39,7 @@
         <div class="menu-top">
             <div class="row justify-content-between align-items-center gx-sm-0">
                 <div class="col">
-                    <div class="header-logo"><a href="<?= $app_path ?>"><img src="<?= $app_path ?>assets/img/easyplus/logo.png" alt="Easy-Plus" class="logo"></a></div>
+                    <div class="header-logo"><a href="<?= $app_path ?>"><img src="<?= $app_path ?>assets/img/easyplus/logo.png" alt="Easy-Plus" class="logo" style="width: 30%;"></a></div>
                 </div>
                 <div class="col-auto header-info">
                     <div class="header-info_icon"><i class="fas fa-phone-alt"></i></div>
