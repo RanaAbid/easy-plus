@@ -99,6 +99,40 @@ function getServiceBySlug($link, $slug) {
     return $service;
 }
 
+// Get service details from service_details table by service_id
+function getServiceDetailsByServiceId($link, $serviceId) {
+    // Check if service_details table exists
+    $tableCheck = "SHOW TABLES LIKE 'service_details'";
+    $tableResult = mysqli_query($link, $tableCheck);
+    if (!$tableResult || mysqli_num_rows($tableResult) == 0) {
+        return null; // Table doesn't exist
+    }
+    
+    $query = "SELECT * FROM service_details WHERE service_id = ? AND status = 'active' ORDER BY sort_order ASC, id ASC LIMIT 1";
+    $stmt = mysqli_prepare($link, $query);
+    if (!$stmt) {
+        return null;
+    }
+    mysqli_stmt_bind_param($stmt, "i", $serviceId);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+    $serviceDetails = mysqli_fetch_assoc($result);
+    mysqli_stmt_close($stmt);
+    
+    // If features is stored as JSON, decode it
+    if ($serviceDetails && !empty($serviceDetails['features'])) {
+        $decoded = json_decode($serviceDetails['features'], true);
+        if (json_last_error() === JSON_ERROR_NONE) {
+            $serviceDetails['features'] = $decoded;
+        } else {
+            // If not JSON, treat as newline-separated string
+            $serviceDetails['features'] = array_filter(array_map('trim', explode("\n", $serviceDetails['features'])));
+        }
+    }
+    
+    return $serviceDetails;
+}
+
 // Generate slug from text
 function generateSlug($text) {
     // Convert to lowercase

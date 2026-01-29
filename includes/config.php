@@ -24,9 +24,10 @@ $offices = [
     'dubai' => [
         'name' => 'Dubai Office',
         'phone' => '+971525444984',
+        'landline' => '075011955',
         'email' => 'easyplus984@gmail.com',
         'address' => 'Office 17, 26B Street Al Mamoura Ras Al Khaimah United Arab Emirates',
-        'working_hours' => '7:00am - 6:00pm (Mon - Fri) Sat, Sun & Holiday Closed',
+        'working_hours' => 'Sun - Thu: 9am - 1pm & 5pm - 9pm | Fri: 9am - 12pm | Sat: Closed',
         'description' => 'Completely recaptiualize 24/7 communities via standards compliant metrics whereas web-enabled content'
     ],
     'australia' => [
@@ -50,9 +51,10 @@ $offices = [
 // Footer contact information (uses Dubai office as primary)
 $footer_contact = [
     'address' => $offices['dubai']['address'],
-    'working_hours' => 'Weekdays 8am - 22pm Weekend 10am - 12pm',
+    'working_hours' => 'Sun - Thu: 9am - 1pm & 5pm - 9pm | Fri: 9am - 12pm | Sat: Closed',
     'email' => $offices['dubai']['email'],
-    'phone' => $offices['dubai']['phone']
+    'phone' => $offices['dubai']['phone'],
+    'landline' => $offices['dubai']['landline']
 ];
 
 // Social Media Links

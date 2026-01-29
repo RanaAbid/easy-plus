@@ -297,9 +297,12 @@ if (!empty($content['image'])) {
                          <h3 class="widget_title">Working Hours</h3>
                          <div class="widget-workhours">
                              <ul>
-                                 <li><i class="fal fa-clock"></i>Mon – Fri 1.00 – 2:00 pm</li>
-                                 <li><i class="fal fa-clock"></i>Saturday 8.00 – 12:00 pm</li>
-                                 <li><span class="text-theme"><i class="fal fa-clock"></i>Sunday closed</span></li>
+                                 <li><i class="fal fa-clock"></i>Sun – Thu: 9am – 1pm & 5pm – 9pm</li>
+                                 <li><i class="fal fa-clock"></i>Friday: 9am – 12pm</li>
+                                 <li><span class="text-theme"><i class="fal fa-clock"></i>Saturday: Closed</span></li>
+                                 <!--<li><i class="fal fa-clock"></i>Mon – Fri 1.00 – 2:00 pm</li>-->
+                                 <!--<li><i class="fal fa-clock"></i>Saturday 8.00 – 12:00 pm</li>-->
+                                 <!--<li><span class="text-theme"><i class="fal fa-clock"></i>Sunday closed</span></li>-->
                              </ul>
                          </div>
                      </div>

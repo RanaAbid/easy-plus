@@ -1,8 +1,15 @@
-# .htaccess (inside services folder)
 RewriteEngine On
-RewriteBase /projects/easy-plus/services/
+RewriteBase /services/
 
 # Rewrite /services/slug to /services/service-details.php?slug=slug
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^([a-zA-Z0-9_-]+)/?$ service-details.php?slug=$1 [L,QSA]
+
+# Prevent directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql)$">
+    Require all denied
+</FilesMatch>

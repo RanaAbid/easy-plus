@@ -22,7 +22,7 @@
                     <div class="footer-info">
                         <div class="footer-info_icon"><i class="fal fa-phone-volume"></i></div>
                         <div class="media-body"><span class="footer-info_label">Contact Us</span>
-                            <div class="footer-info_link"><a href="mailto:<?php echo $footer_contact['email']; ?>"><?php echo $footer_contact['email']; ?></a><br><a href="tel:<?php echo $footer_contact['phone']; ?>"><?php echo $footer_contact['phone']; ?></a></div>
+                            <div class="footer-info_link"><a href="mailto:<?php echo $footer_contact['email']; ?>"><?php echo $footer_contact['email']; ?></a><br><a href="tel:<?php echo $footer_contact['phone']; ?>">Phone: <?php echo $footer_contact['phone']; ?></a><br><a href="tel:<?php echo $footer_contact['landline']; ?>">Landline: <?php echo $footer_contact['landline']; ?></a></div>
                         </div>
                     </div>
                 </div>
@@ -121,7 +121,7 @@
                     <div class="widget footer-widget">
                         <h3 class="widget_title">Office Maps</h3>
                         <div class="footer-map">
-                            <iframe title="office location map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3591.8524057235454!2d55.96527677597439!3d25.808442906671218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef6713ae00cea99%3A0xafc0bfe80d291b1a!2s17%2026B%20St%20-%20Ras%20Al%20Khaimah%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2s!4v1765274751707!5m2!1sen!2s" width="200" height="180" style="border:0;" allowfullscreen="" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe title="office location map" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3591.8548289188157!2d55.96524047540189!3d25.80836297732263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjXCsDQ4JzMwLjEiTiA1NcKwNTgnMDQuMSJF!5e0!3m2!1sen!2s!4v1769096041021!5m2!1sen!2s" width="200" height="180" style="border:0;" allowfullscreen="" loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>

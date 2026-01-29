@@ -1,0 +1,15 @@
+[02-Jan-2026 10:43:10 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php:12
+Stack trace:
+#0 /home/tatours/easyplus.aiman-altaf.com/contact-us/index.php(2): include()
+#1 {main}
+  thrown in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php on line 12
+[02-Jan-2026 10:43:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php:12
+Stack trace:
+#0 /home/tatours/easyplus.aiman-altaf.com/contact-us/index.php(2): include()
+#1 {main}
+  thrown in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php on line 12
+[02-Jan-2026 10:52:43 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function mysqli_connect() in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php:12
+Stack trace:
+#0 /home/tatours/easyplus.aiman-altaf.com/contact-us/index.php(2): include()
+#1 {main}
+  thrown in /home/tatours/easyplus.aiman-altaf.com/includes/dbcode.php on line 12
