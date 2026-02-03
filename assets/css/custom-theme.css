@@ -1,0 +1,195 @@
+/* Custom Theme Colors - Matching Header and Footer */
+:root {
+    /* Primary theme color - matching header accent */
+    --theme-color: #623398;
+    /* Dark background matching header-top theme color */
+    --dark-bg: #623398;
+    --dark-bg-secondary: #4d2877;
+    --dark-bg-tertiary: #3d1f5f;
+    --dark-border: rgba(255, 255, 255, 0.1);
+    --dark-text: rgba(255, 255, 255, 0.8);
+    --dark-text-light: #ffffff;
+}
+
+/* Header Top Styling - Theme Color Background */
+.header-layout1 .header-top {
+    background-color: var(--theme-color);
+    border-bottom: 1px solid var(--dark-border);
+}
+
+.header-layout1 .header-text {
+    color: var(--dark-text-light);
+}
+
+.header-layout1 .header-social.style-white a {
+    color: var(--dark-text-light);
+}
+
+.header-layout1 .header-social.style-white a:hover {
+    color: var(--dark-text-light);
+    opacity: 0.8;
+}
+
+/* Footer Styling - Match Header Theme Color */
+.footer-layout1 {
+    background-color: var(--theme-color);
+}
+
+.footer-layout1 .footer-top {
+    background-color: var(--theme-color);
+    border-bottom: 1px solid var(--dark-border);
+    padding: 50px 0;
+}
+
+.footer-info_group {
+    border-right: 1px solid var(--dark-border);
+}
+
+.footer-info_group:last-child {
+    border-right: none;
+}
+
+.footer-info_icon {
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-light);
+}
+
+.footer-info_label {
+    color: var(--dark-text-light);
+}
+
+.footer-info_link {
+    color: var(--dark-text);
+}
+
+.footer-info_link a {
+    color: var(--dark-text);
+}
+
+.footer-info_link a:hover {
+    color: var(--dark-text-light);
+}
+
+/* Widget Area */
+.widget-area {
+    background-color: var(--theme-color);
+}
+
+.footer-widget .widget_title {
+    color: var(--dark-text-light);
+}
+
+.footer-widget a {
+    color: var(--dark-text);
+}
+
+.footer-widget a:hover {
+    color: var(--dark-text-light);
+}
+
+.footer-text {
+    color: var(--dark-text);
+}
+
+/* Social Icons */
+.footer-social a {
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-light);
+}
+
+.footer-social a:hover {
+    background-color: var(--dark-bg-tertiary);
+    color: var(--dark-text-light);
+}
+
+/* Copyright */
+.copyright-wrap {
+    background-color: var(--dark-bg-secondary);
+    border-top: 1px solid var(--dark-border);
+}
+
+.copyright-text {
+    color: var(--dark-text);
+}
+
+.copyright-text a {
+    color: var(--dark-text-light);
+}
+
+.copyright-text a:hover {
+    color: var(--dark-text-light);
+    text-decoration: underline;
+}
+
+/* Consistent Theme Color Usage */
+.text-theme {
+    color: var(--theme-color) !important;
+}
+
+.bg-theme {
+    background-color: var(--theme-color) !important;
+}
+
+/* Button Styling */
+.vs-btn {
+    background-color: var(--theme-color);
+    color: var(--dark-text-light);
+}
+
+.vs-btn:hover {
+    background-color: var(--dark-bg-secondary);
+    color: var(--dark-text-light);
+}
+
+/* Links in Footer */
+.footer-widget.widget_nav_menu a,
+.footer-widget.widget_categories a {
+    color: var(--dark-text);
+    transition: color 0.3s ease;
+}
+
+.footer-widget.widget_nav_menu a:hover,
+.footer-widget.widget_categories a:hover {
+    color: var(--dark-text-light);
+}
+
+/* Text Adjustments */
+body {
+    color: var(--body-color);
+    font-family: var(--body-font);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--title-color);
+    font-family: var(--title-font);
+}
+
+/* Ensure consistent spacing and typography */
+.footer-info {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-info_label {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.footer-info_link {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .footer-info_group {
+        border-right: none;
+        border-bottom: 1px solid var(--dark-border);
+        padding: 30px 0;
+    }
+    
+    .footer-info_group:last-child {
+        border-bottom: none;
+    }
+}
