@@ -1,0 +1,188 @@
+/* Mobile Navigation Fix - Logo and Functionality */
+
+/* Mobile Menu Logo Styling */
+.vs-menu-wrapper .mobile-logo {
+    padding: 25px 20px;
+    text-align: center;
+    border-bottom: 1px solid #e7ebf3;
+    background-color: #fff;
+}
+
+.vs-menu-wrapper .mobile-logo img {
+    max-width: 180px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ensure mobile menu toggle button is visible and clickable - ONLY ON MOBILE */
+.vs-menu-toggle {
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Hide toggle button on desktop (large screens) */
+@media (min-width: 992px) {
+    .vs-menu-toggle.d-lg-none {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+}
+
+/* Show toggle button only on mobile/tablet */
+@media (max-width: 991px) {
+    .vs-menu-toggle.d-inline-block.d-lg-none {
+        display: inline-block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+    
+    .sticky-wrapper .vs-menu-toggle {
+        background-color: var(--theme-color, #623398) !important;
+        color: #ffffff !important;
+        border: none !important;
+        width: 50px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+    
+    .sticky-wrapper .vs-menu-toggle:hover {
+        background-color: #4d2877 !important;
+        transform: scale(1.05);
+    }
+    
+    .sticky-wrapper .vs-menu-toggle i {
+        font-size: 20px;
+        line-height: 50px;
+    }
+}
+
+/* Mobile Menu Wrapper Fix */
+.vs-menu-wrapper {
+    z-index: 999999 !important;
+    pointer-events: none;
+}
+
+.vs-menu-wrapper.vs-body-visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.vs-menu-wrapper.vs-body-visible .vs-menu-area {
+    left: 0 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.vs-menu-area {
+    pointer-events: auto;
+}
+
+/* Mobile Menu Links Styling */
+.vs-mobile-menu {
+    padding: 20px 0;
+}
+
+.vs-mobile-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vs-mobile-menu ul li {
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.vs-mobile-menu ul li:last-child {
+    border-bottom: none;
+}
+
+.vs-mobile-menu ul li a {
+    display: block;
+    padding: 15px 40px;
+    text-decoration: none;
+    color: var(--title-color, #1A1A1A);
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.vs-mobile-menu ul li a:before {
+    content: "\f061";
+    font-family: "Font Awesome 5 Pro";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: var(--theme-color, #623398);
+}
+
+.vs-mobile-menu ul li a:hover {
+    color: var(--theme-color, #623398);
+    background-color: rgba(98, 51, 152, 0.05);
+    padding-left: 45px;
+}
+
+/* Close button in mobile menu */
+.vs-menu-wrapper .vs-menu-toggle,
+.vs-menu-area .vs-menu-toggle,
+.mobile-menu-close,
+[data-action="close-menu"] {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: var(--theme-color, #623398) !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer !important;
+    z-index: 1000001 !important;
+    transition: all 0.3s ease;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    -webkit-tap-highlight-color: rgba(98, 51, 152, 0.3);
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Ensure close button is always on top and clickable */
+.vs-menu-area {
+    position: relative;
+}
+
+/* Make sure close button is clickable and visible */
+.vs-menu-area .vs-menu-toggle {
+    position: absolute !important;
+    z-index: 1000002 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation;
+}
+
+.vs-menu-wrapper .vs-menu-toggle:hover,
+.vs-menu-area .vs-menu-toggle:hover {
+    background-color: #4d2877;
+    transform: rotate(90deg);
+    color: #ffffff !important;
+}
+
+.vs-menu-wrapper .vs-menu-toggle i,
+.vs-menu-area .vs-menu-toggle i {
+    line-height: 40px;
+}

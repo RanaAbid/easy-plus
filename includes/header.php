@@ -32,6 +32,7 @@ include("config.php");
     <link rel="stylesheet" href="<?= $app_path ?>assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="<?= $app_path ?>assets/css/style.css">
     <link rel="stylesheet" href="<?= $app_path ?>assets/css/custom-theme.css">
+    <link rel="stylesheet" href="<?= $app_path ?>assets/css/mobile-nav-fix.css">
     <style>
     /* Critical CSS - Hero styles moved inline for faster rendering */
     .vs-hero-wrapper .hero-layer-base{font-style:normal;text-decoration:none;text-transform:none;letter-spacing:0}

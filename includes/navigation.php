@@ -1,10 +1,10 @@
 <div class="vs-menu-wrapper">
-    <div class="vs-menu-area text-center"><button class="vs-menu-toggle"><i class="fal fa-times"></i></button>
-        <div class="mobile-logo"><a href="<?= $app_path ?>"><img src="<?= $app_path ?>assets/img/logo.png" alt="TechBiz" class="logo"></a></div>
+    <div class="vs-menu-area text-center"><button class="vs-menu-toggle mobile-menu-close" data-action="close-menu" onclick="jQuery('.vs-menu-wrapper').removeClass('vs-body-visible'); jQuery('body, html').css('overflow', ''); return false;"><i class="fal fa-times"></i></button>
+        <div class="mobile-logo"><a href="<?= $app_path ?>"><img src="<?= $app_path ?>assets/img/easyplus/logo.png" alt="Easy-Plus" class="logo" style="max-width: 180px; height: auto;"></a></div>
         <div class="vs-mobile-menu">
             <ul>
                 <li><a href="<?= $app_path ?>">Home</a></li>
-                <li><a href="<?= $app_path ?>service/">Services</a></li>
+                <li><a href="<?= $app_path ?>services/">Services</a></li>
                 <li><a href="<?= $app_path ?>about-us/">About Us</a></li>
                 <li><a href="<?= $app_path ?>contact-us/">Contact Us</a></li>
             </ul>
@@ -16,7 +16,7 @@
         <div class="container">
             <div class="row align-items-center justify-content-between gy-1 text-center text-lg-start">
                 <div class="col-lg-auto d-none d-lg-block">
-                    <p class="header-text"><span class="fw-medium">Now Hiring:</span> Are you a driven and motivated 1st Line IT Support Engineer?</p>
+                    <p class="header-text"><span class="fw-medium">Professional Services:</span> Accounting, VAT, Business Setup & Government Documentation in UAE</p>
                 </div>
                 <div class="col-lg-auto">
                     <div class="header-social style-white">

@@ -134,7 +134,147 @@
         </div>
     </div>
 </footer><a href="#" class="scrollToTop scroll-btn"><i class="far fa-arrow-up"></i></a>
-<script src="<?= $app_path ?>assets/js/vendor/jquery-3.6.0.min.js" defer></script>
+<script src="<?= $app_path ?>assets/js/vendor/jquery-3.6.0.min.js"></script>
+<script>
+// Mobile Menu Fix - Ensure navigation works and closes properly
+jQuery(document).ready(function($) {
+    var $menuWrapper = $('.vs-menu-wrapper');
+    var $menuArea = $('.vs-menu-area');
+    
+    // Function to close menu
+    function closeMobileMenu() {
+        $menuWrapper.removeClass('vs-body-visible');
+        $('body').css('overflow', '');
+        $('html').css('overflow', '');
+    }
+    
+    // Function to open menu
+    function openMobileMenu() {
+        $menuWrapper.addClass('vs-body-visible');
+        $('body').css('overflow', 'hidden');
+        $('html').css('overflow', 'hidden');
+    }
+    
+    // Initialize mobile menu plugin first, but exclude close button from its handlers
+    if ($menuWrapper.length > 0 && typeof $.fn.vsmobilemenu === 'function') {
+        $menuWrapper.vsmobilemenu({
+            menuToggleBtn: '.vs-menu-toggle:not(.mobile-menu-close):not([data-action="close-menu"])'
+        });
+    }
+    
+    // Immediately bind close button handler before plugin can interfere
+    $('.mobile-menu-close, [data-action="close-menu"]').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        closeMobileMenu();
+        return false;
+    });
+    
+    // Also bind after a delay to override any plugin handlers
+    setTimeout(function() {
+        // Unbind any existing handlers from close button
+        $('.mobile-menu-close, [data-action="close-menu"]').off('click.vsmobilemenu');
+        
+        // Bind our close handler with highest priority
+        $('.mobile-menu-close, [data-action="close-menu"]').on('click.mobileclose', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            closeMobileMenu();
+            return false;
+        });
+    }, 300);
+    
+    // Handle toggle button in header (hamburger icon) - exclude close button
+    $(document).on('click', '.sticky-wrapper .vs-menu-toggle:not(.mobile-menu-close):not([data-action="close-menu"]), .header .vs-menu-toggle:not(.mobile-menu-close):not([data-action="close-menu"])', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        if ($menuWrapper.hasClass('vs-body-visible')) {
+            closeMobileMenu();
+        } else {
+            openMobileMenu();
+        }
+        return false;
+    });
+    
+    // Handle close button - Multiple selectors to ensure it works
+    $(document).on('click', '.mobile-menu-close', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        closeMobileMenu();
+        return false;
+    });
+    
+    $(document).on('click', '[data-action="close-menu"]', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        e.stopImmediatePropagation();
+        closeMobileMenu();
+        return false;
+    });
+    
+    // Handle close button by checking if it's inside menu area
+    $(document).on('click', '.vs-menu-area button.vs-menu-toggle', function(e) {
+        if ($(this).hasClass('mobile-menu-close') || $(this).attr('data-action') === 'close-menu') {
+            e.preventDefault();
+            e.stopPropagation();
+            e.stopImmediatePropagation();
+            closeMobileMenu();
+            return false;
+        }
+    });
+    
+    // Also handle clicks on the icon inside the close button
+    $(document).on('click', '.mobile-menu-close i, [data-action="close-menu"] i', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $(this).closest('button').trigger('click');
+        closeMobileMenu();
+        return false;
+    });
+    
+    // Close menu when clicking on the dark overlay (outside menu area)
+    $menuWrapper.on('click', function(e) {
+        // Only close if clicking directly on the wrapper, not on menu area
+        if ($(e.target).hasClass('vs-menu-wrapper') || $(e.target).is('.vs-menu-wrapper')) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Prevent menu area clicks from closing menu (except close button)
+    $menuArea.on('click', function(e) {
+        // Don't stop propagation for close button
+        if (!$(e.target).closest('.vs-menu-toggle').length) {
+            e.stopPropagation();
+        }
+    });
+    
+    // Close menu when clicking on a navigation link
+    $(document).on('click', '.vs-mobile-menu a', function(e) {
+        // Allow link to work normally, then close menu
+        setTimeout(function() {
+            closeMobileMenu();
+        }, 100);
+    });
+    
+    // Close menu on window resize to desktop
+    $(window).on('resize', function() {
+        if ($(window).width() > 991) {
+            closeMobileMenu();
+        }
+    });
+    
+    // Close menu on ESC key press
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            closeMobileMenu();
+        }
+    });
+});
+</script>
 <script src="<?= $app_path ?>assets/js/app.min.js" defer></script>
 <script src="<?= $app_path ?>assets/js/layerslider.utils.js" defer></script>
 <script src="<?= $app_path ?>assets/js/layerslider.transitions.js" defer></script>
